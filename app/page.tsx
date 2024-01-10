@@ -1,35 +1,67 @@
+import Card from '@/components/card/card'
+import Footer from '@/components/footer/footer'
 import Hero from '@/components/hero/hero'
 import Navbar from '@/components/navbar/Navbar'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
-import Image from 'next/image'
+
+import { courses } from '@/lib/courses'
+
 
 export default function Home() {
   return (
-   <div className="">
+   <div className="flex flex-col overflow-x-hidden">
     <Navbar/>
     <Hero/>
-   <main className='flex justify-center w-full'>
-    
-   <Carousel
-      // opts={{
-      //   align: "start",
-      // }}
-      className="w-[90%] "
-    >
-      <CarouselContent className='flex justify-center'>
-        {Array.from({ length: 10 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
-            <div className="p-1 h-72 w-64 bg-teal-700">
-              <h1 className='text-3xl font-bold'>{index+1} Card</h1>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+   
+    <main className='md:flex md:justify-center w-full pb-10'>
+    <div className="flex flex-col gap-10">
+      <h1 className='w-full text-xl md:text-4xl font-semibold border-b pl-4'>Most common Courses</h1>
+
+  
+      <div className='flex justify-center flex-wrap gap-8 md:px-10'>
+
+        {courses.map((course,index)=>{
+          return <Card
+          key={index}
+              id={course.id}
+              category={course.category}
+              price={course.price}
+              subject={course.subject}
+              rating={course.rating}
+              cover={course.cover}  />
+      
+        })}
+
+
+      </div>
+      
+
+
+
+
+
+
+    <h1 className='w-full text-2xl md:text-4xl font-semibold border-b mt-10 pl-4'>New Coming  Courses</h1>
+    <div className='flex justify-center flex-wrap gap-8 md:px-10'>
+
+{courses.map((course,index)=>{
+  return <Card
+  key={index}
+      id={course.id}
+      category={course.category}
+      price={course.price}
+      subject={course.subject}
+      rating={course.rating}
+      cover={course.cover}  />
+
+})}
+
+
+</div>
+
+    </div>
 
    </main>
+   <Footer/>
    </div>
   )
 }

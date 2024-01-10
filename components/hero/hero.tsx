@@ -7,7 +7,7 @@ import { students } from "@/lib/students";
 import Search from "../search/search";
 
 const Hero = () => {
-  return ( <div className="w-full flex min-h-screen justify-around items-center">
+  return ( <div className="w-full flex min-h-screen justify-center md:justify-around items-center flex-wrap">
     {/* content */}
     <div className="flex flex-col gap-10 pt-10">
       <h1 className="text-2xl md:text-5xl font-bold">Welcome To Alpha Academy</h1>
@@ -34,7 +34,7 @@ const Hero = () => {
     
 
     <div className="">
-      <Image  src={Banner} alt="banner" />
+      <Image  src={Banner} alt="banner" className=""/>
     </div>
   </div> );
 }
