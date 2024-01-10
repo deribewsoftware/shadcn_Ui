@@ -1,10 +1,15 @@
+import Hero from '@/components/hero/hero'
+import Navbar from '@/components/navbar/Navbar'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import Image from 'next/image'
 
 export default function Home() {
   return (
-   
+   <div className="">
+    <Navbar/>
+    <Hero/>
    <main className='flex justify-center w-full'>
+    
    <Carousel
       // opts={{
       //   align: "start",
@@ -25,5 +30,6 @@ export default function Home() {
     </Carousel>
 
    </main>
+   </div>
   )
 }
