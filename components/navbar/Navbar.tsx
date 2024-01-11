@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return ( <div className={`w-full bg-slate-100 px-2 z-50 h-12 items-center   flex justify-between flex-wrap overflow-x-hidden ${isScroll? "shadow-md shadow-slate-300  fixed  ":""} duration-300`}>
     <div className="flex"><Avatar alt="Logo" src="../../public/alpha.png"/>
-     <h1 className="font-semibold text-3xl">
+     <h1 className="font-semibold text-xl md:text-3xl">
       <span className="text-blue-600">Alpha</span>
     <span className="text-teal-600"> Academy</span>
      </h1></div>
