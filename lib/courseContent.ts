@@ -79,5 +79,18 @@ export const coursesContents = [
           "Analytics and Metrics",
       ],
   },
+
+  {
+    "chapter": "Nine",
+    "title": "EUEE/ELSLEE Exams",
+    "lessons": [
+        "2015/2023 Exams",
+        "2014/2022 Exams",
+        "2013/2021 Exams",
+        "2012/2020 Exams",
+        "2011/2019 Exams",
+        "2010/2018 Exams",
+    ],
+},
   
 ]

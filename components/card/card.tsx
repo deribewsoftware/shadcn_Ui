@@ -18,7 +18,7 @@ interface CardProps{
 
 
 const Card:React.FC<CardProps> = ({id,subject,category,cover,price,rating}) => {
-  return ( <div className="w-full mx-4 md:mx-0 md:w-72 h-auto border bg-white   rounded-[5px] border border-slate-400 border-[1.5px]  hover:shadow-teal-300 hover:bg-teal-300  hover:border-teal-500  hover:shadow-lg duration-300 hover">
+  return ( <div className="w-full mx-4 md:mx-0 md:w-72 h-auto border bg-white   rounded-[5px] border border-slate-400 border-[1.5px]  hover:shadow-teal-300  hover:border-teal-500  hover:shadow-lg duration-300 hover">
     <div className="w-full ">
       <Image src={cover} alt={subject} className="h-[200px] w-full rounded-t-[5px]"/>
     </div>
@@ -35,7 +35,7 @@ const Card:React.FC<CardProps> = ({id,subject,category,cover,price,rating}) => {
 
     </div>
     <div className="m-3">
-    <Link href={`/course/${id}`} className="w-full flex justify-center border border-teal-500 hover:border-slate-400 hover:bg-white rounded  duration-300 p-2">
+    <Link href={`/course/${id}`} className="w-full flex justify-center border border-slate-400 hover:border-slate-400 hover:bg-teal-600 hover:text-white rounded  duration-300 p-2">
       <p className="text-lg font-medium ">Get started</p>
     </Link>
     </div>
