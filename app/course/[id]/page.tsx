@@ -3,7 +3,7 @@ import Container from "@/components/container/container";
 import Footer from "@/components/footer/footer";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { CourseContent } from "./courseContent";
+
 import RatingCourse from "./rating/rating";
 import Heading from "@/components/Heading/Heading";
 import { BsBarChart } from "react-icons/bs";
@@ -15,6 +15,7 @@ import { IconType } from "react-icons";
 import { Rating } from "@mui/material";
 import Reviews from "./reviews/Reviews";
 import { reviews } from "@/lib/reviews";
+import CourseContent from "./courseContent";
 
 
 interface ContentListProps{
@@ -141,7 +142,7 @@ const aboutCourse=["Welcome to this practical course on doing business in Ethiop
 
 
 <Container
-     childern={<CourseContent/>}
+     childern={<CourseContent courseId={id.toString()}/>}
      />
 
        
