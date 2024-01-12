@@ -4,30 +4,31 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { coursesContents } from "@/lib/courseContent"
 
 export function CourseContent() {
   return (
     <Accordion type="single" collapsible className="w-full p-2">
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
+
+      {coursesContents.map((courseContent,index) =>{
+        return <AccordionItem key={index} value="item-1" className="bg-slate-200 my-4 px-1 rounded-lg">
+        <AccordionTrigger ><div className="flex gap-3">
+         <h5>Chapter:{courseContent.chapter}</h5>
+         <h5>Chapter:{courseContent.title}</h5>
+          </div></AccordionTrigger>
+        <AccordionContent className="bg-white">
+          <ul className="">
+            {courseContent.lessons.map((lesson,ind)=>{
+return <li key={ind}>{lesson}</li>
+            })}
+          </ul>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Is it styled?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It comes with default styles that matches the other
-          components&apos; aesthetic.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>Is it animated?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It&apos;s animated by default, but you can disable it if you
-          prefer.
-        </AccordionContent>
-      </AccordionItem>
+      })}
+
+
+     
+      
     </Accordion>
   )
 }
