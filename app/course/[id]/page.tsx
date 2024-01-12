@@ -23,8 +23,8 @@ title:string;
 
 const ContentList:React.FC<ContentListProps>=({icon:Icon,title})=>{
   return(
-    <div className="flex gap-4 px-2 font-sans font-light text-base border-b-2  mx-2 py-2">
-      <Icon size={20}/>
+    <div className="flex gap-4 px-2 font-sans font-light text-sm border-b-2  mx-2 py-2">
+      <Icon size={24}/>
       <p>{title}</p>
     </div>
   )
@@ -53,7 +53,7 @@ const aboutCourse=["Welcome to this practical course on doing business in Ethiop
   useEffect(() => {
     const handleScroll = () => {
       if (window !== undefined) {
-        if (window.scrollY > 4000) {
+        if (window.scrollY > 2000) {
           setScroll(true);
         } else {
           setScroll(false);
@@ -224,9 +224,9 @@ Hybrid, Atlanta, GA Area - Full Time / Direct Hire</div>}/>
 
 
 
-    <div className="flex justify-center items-start  w-full md:w-3/12 p-2 md:px-4 overflow-y-auto ">
+    <div className="flex justify-center items-center w-full md:w-3/12 p-2 md:px-4 overflow-y-auto ">
 
-      <div className={`  overflow-y-auto overflow-x-hidden  ${isScroll? "":"top-10 md:fixed md:w-3/12 md:px-8"}`}>
+      <div className={`  overflow-y-auto overflow-x-hidden  ${isScroll? "":"top-10 md:fixed md:w-3/12 md:px-8"} duration-500`}>
       <div className="flex flex-col overflow-y-auto overflow-x-hidden   gap-10 ">
       <h4>Course Content</h4>
      <Container
@@ -243,15 +243,22 @@ Hybrid, Atlanta, GA Area - Full Time / Direct Hire</div>}/>
       />
 
 <ContentList
-      title="Level:Beginner"
+      title="Lessons:20"
       icon={BsBarChart}
       />
 
 <ContentList
-      title="Level:Beginner"
-      icon={BsBarChart}
+      title="Questions and Exams:3000"
+      icon={GoQuestion}
       />
-
+<ContentList
+      title="Accessed by Laptop,desktop,Mobile,Tablet and etc..."
+      icon={IoIosPhonePortrait}
+      />
+<ContentList
+      title="Communicate and Asking Questions and get Answers from Your Friends"
+      icon={IoPeopleOutline}
+      />
      </div> }
      />
       <Container
