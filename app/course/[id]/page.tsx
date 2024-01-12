@@ -4,7 +4,7 @@ import Footer from "@/components/footer/footer";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CourseContent } from "./courseContent";
-import Rating from "./rating/rating";
+import RatingCourse from "./rating/rating";
 import Heading from "@/components/Heading/Heading";
 import { BsBarChart } from "react-icons/bs";
 import { SiLibreoffice } from "react-icons/si";
@@ -12,6 +12,9 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { IoIosPhonePortrait } from "react-icons/io";
 import { GoQuestion } from "react-icons/go";
 import { IconType } from "react-icons";
+import { Rating } from "@mui/material";
+import Reviews from "./reviews/Reviews";
+import { reviews } from "@/lib/reviews";
 
 
 interface ContentListProps{
@@ -137,85 +140,41 @@ const aboutCourse=["Welcome to this practical course on doing business in Ethiop
 
 
 
-<Container childern={ <div className="p-3">Global Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearvGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire</div>}/>
+<Container
+     childern={<CourseContent/>}
+     />
 
        
       
-     <Rating/>
+     <RatingCourse/>
 
 
-     <Container childern={ <div className="p-3">Global Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearvGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire</div>}/>
+     <Container childern={ <div className="p-3 flex flex-col gap-2">
+      <Heading title="Add Rating"/>
+      <Rating/>
+     </div>}/>
 
-<Container childern={ <div className="p-3">Global Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearvGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire</div>}/>
+<Container childern={ <div className="p-3 flex flex-col gap-2">
+<Heading title="A&Q"/>
+ 
+</div>}/>
 
-<Container childern={ <div className="p-3">Global Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearvGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire</div>}/>
+<Container childern={ <div className="p-3 flex flex-col gap-2">
+<Heading title="Course Reviews"/>
+<div className="flex flex-col">
+  {reviews.map((review,index) =>{
+return <Reviews key={index}
+name={review.name}
+description={review.description}
+rating={review.rating}
+date={review.date}
+image={review.image}
+/>
+  })}
+</div>
+</div>}/>
 
-<Container childern={ <div className="p-3">Global Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearvGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire
-The Hired Guns are seeking a proactive, results-driven Print-On-Demand Sales Director to lead the POD business for a startup nestled within a $2-billion promotional products company. Note, this is a hybrid role in the Atlanta, Georgia area. You must be willing to go to the office in-person, and to relocate if you’re not currently living in the region.
-Salary range: $110,000 to $160,000 per yearGlobal Promotional Products Company
-Hybrid, Atlanta, GA Area - Full Time / Direct Hire</div>}/>
+
     </div>
     </div>
 
@@ -261,9 +220,7 @@ Hybrid, Atlanta, GA Area - Full Time / Direct Hire</div>}/>
       />
      </div> }
      />
-      <Container
-     childern={<CourseContent/>}
-     />
+      
      
      
       </div>

@@ -1,6 +1,6 @@
 import Container from "@/components/container/container";
 import { IoIosStar } from "react-icons/io";
-const Rating = () => {
+const RatingCourse = () => {
 
   const ratingData=[
     {id:1},
@@ -36,4 +36,4 @@ const Rating = () => {
   );
 }
  
-export default Rating;
+export default RatingCourse;
