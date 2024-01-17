@@ -1,7 +1,7 @@
 export const questions=[
   {
     id:"1",
-    questions:"What is The cell wall of Bacteria?",
+    question:"What is The cell wall of Bacteria?",
     year:2015,
     chapter:"one",
     title:"Bacteria",
@@ -230,3 +230,230 @@ export const questions=[
     explanation: "The axial filament, found in spirochetes, is a flexible, corkscrew-like structure that enables these bacteria to move in a distinctive twisting motion. This motility is essential for their ability to navigate through various environments."
   }
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*const questions = [
+  {
+    id: "23",
+    question: "Which bacterial structure is associated with the ability to move in a corkscrew-like manner?",
+    year: 2037,
+    chapter: "twenty-three",
+    title: "Bacterial Motility",
+    choices: [
+      { choice: "Pili", isAnswer: false },
+      { choice: "Flagellum", isAnswer: false },
+      { choice: "Axial filament", isAnswer: true },
+      { choice: "Cilia", isAnswer: false }
+    ],
+    explanation: "The axial filament, found in spirochetes, is a flexible, corkscrew-like structure that enables these bacteria to move in a distinctive twisting motion. This motility is essential for their ability to navigate through various environments."
+  }
+,  
+
+  {
+    id: "24",
+    question: "Which bacterial group is responsible for nitrogen fixation in the root nodules of leguminous plants?",
+    year: 2038,
+    chapter: "twenty-four",
+    title: "Symbiotic Relationships",
+    choices: [
+      { choice: "Cyanobacteria", isAnswer: false },
+      { choice: "Rhizobia", isAnswer: true },
+      { choice: "Actinobacteria", isAnswer: false },
+      { choice: "Spirochetes", isAnswer: false }
+    ],
+    explanation: "Rhizobia, a group of nitrogen-fixing bacteria, form symbiotic relationships with leguminous plants by colonizing their root nodules. This relationship benefits both the bacteria and the plants through the conversion of atmospheric nitrogen into a usable form."
+  },
+
+  {
+    id: "25",
+    question: "What is the primary function of bacterial cytoplasmic membranes?",
+    year: 2039,
+    chapter: "twenty-five",
+    title: "Bacterial Membranes",
+    choices: [
+      { choice: "Energy production", isAnswer: false },
+      { choice: "Selective permeability", isAnswer: true },
+      { choice: "Cellular respiration", isAnswer: false },
+      { choice: "Genetic material storage", isAnswer: false }
+    ],
+    explanation: "Bacterial cytoplasmic membranes play a crucial role in maintaining selective permeability, controlling the passage of substances in and out of the cell. This function is essential for nutrient uptake, waste removal, and overall cell homeostasis."
+  },
+  {
+    id: "26",
+    question: "Which bacterial process involves the exchange of genetic material through direct cell-to-cell contact?",
+    year: 2040,
+    chapter: "twenty-six",
+    title: "Bacterial Genetic Exchange",
+    choices: [
+      { choice: "Transformation", isAnswer: false },
+      { choice: "Conjugation", isAnswer: true },
+      { choice: "Transduction", isAnswer: false },
+      { choice: "Binary fission", isAnswer: false }
+    ],
+    explanation: "Conjugation is a bacterial process where genetic material, typically in the form of plasmids, is transferred directly between two bacterial cells through a structure known as the conjugation bridge."
+  },
+
+  {
+    id: "27",
+    question: "In bacterial binary fission, what is the term for the splitting of the cell into two daughter cells?",
+    year: 2041,
+    chapter: "twenty-seven",
+    title: "Bacterial Reproduction",
+    choices: [
+      { choice: "Cytokinesis", isAnswer: true },
+      { choice: "Mitosis", isAnswer: false },
+      { choice: "Meiosis", isAnswer: false },
+      { choice: "Budding", isAnswer: false }
+    ],
+    explanation: "Cytokinesis is the process during bacterial binary fission where the cell divides into two daughter cells, each containing a copy of the genetic material. It marks the completion of the cell cycle."
+  },
+
+  {
+    id: "28",
+    question: "What is the primary role of bacterial efflux pumps?",
+    year: 2042,
+    chapter: "twenty-eight",
+    title: "Bacterial Resistance Mechanisms",
+    choices: [
+      { choice: "Energy production", isAnswer: false },
+      { choice: "Cell division", isAnswer: false },
+      { choice: "Antibiotic resistance", isAnswer: true },
+      { choice: "Protein synthesis", isAnswer: false }
+    ],
+    explanation: "Bacterial efflux pumps are involved in antibiotic resistance by actively pumping out antibiotics from the bacterial cell, reducing their concentration within the cell and contributing to the development of resistance."
+  },
+
+  {
+    id: "29",
+    question: "Which bacterial group is known for its ability to fix carbon dioxide using the Calvin cycle?",
+    year: 2043,
+    chapter: "twenty-nine",
+    title: "Bacterial Metabolic Pathways",
+    choices: [
+      { choice: "Methanogens", isAnswer: false },
+      { choice: "Chemoautotrophs", isAnswer: true },
+      { choice: "Halophiles", isAnswer: false },
+      { choice: "Thermophiles", isAnswer: false }
+    ],
+    explanation: "Chemoautotrophic bacteria utilize the Calvin cycle to fix carbon dioxide and synthesize organic molecules. This metabolic pathway is essential for their ability to thrive in environments with limited organic carbon sources."
+  },
+
+  {
+    id: "30",
+    question: "What bacterial structure is responsible for adherence to host tissues and colonization?",
+    year: 2044,
+    chapter: "thirty",
+    title: "Bacterial Pathogenesis",
+    choices: [
+      { choice: "Capsule", isAnswer: false },
+      { choice: "Flagellum", isAnswer: false },
+      { choice: "Adhesins", isAnswer: true },
+      { choice: "Endospore", isAnswer: false }
+    ],
+    explanation: "Adhesins, often located on the surface of bacteria, are responsible for binding to specific host tissues. This adherence is a crucial step in the process of bacterial colonization and establishment of infection."
+  },
+
+  {
+    id: "31",
+    question: "Which bacterial group is characterized by the absence of a cell wall?",
+    year: 2045,
+    chapter: "thirty-one",
+    title: "Bacterial Adaptations",
+    choices: [
+      { choice: "Mycoplasma", isAnswer: true },
+      { choice: "Actinobacteria", isAnswer: false },
+      { choice: "Spirochetes", isAnswer: false },
+      { choice: "Cyanobacteria", isAnswer: false }
+    ],
+    explanation: "Mycoplasma bacteria are unique in that they lack a cell wall. This adaptation allows them to be flexible in shape and often makes them resistant to certain antibiotics that target cell wall synthesis."
+  },
+
+  {
+    id: "32",
+    question: "What is the role of bacterial exotoxins in pathogenicity?",
+    year: 2046,
+    chapter: "thirty-two",
+    title: "Bacterial Toxins",
+    choices: [
+      { choice: "Cellular respiration", isAnswer: false },
+      { choice: "Energy production", isAnswer: false },
+      { choice: "Cellular invasion", isAnswer: false },
+      { choice: "Virulence and tissue damage", isAnswer: true }
+    ],
+    explanation: "Bacterial exotoxins are potent toxins released by bacteria, contributing to their pathogenicity. These toxins often target specific cells, leading to tissue damage and various symptoms associated with bacterial infections."
+  },
+
+  {
+    id: "33",
+    question: "Which bacterial process involves the uptake of DNA fragments from the environment?",
+    year: 2047,
+    chapter: "thirty-three",
+    title: "Bacterial Genetic Transfer",
+    choices: [
+      { choice: "Binary fission", isAnswer: false },
+      { choice: "Conjugation", isAnswer: false },
+      { choice: "Transformation", isAnswer: true },
+      { choice: "Transduction", isAnswer: false }
+    ],
+    explanation: "Transformation is a bacterial process where cells take up DNA fragments from the environment, incorporating new genetic material into their genome. This mechanism contributes to genetic diversity among bacterial populations."
+  },
+
+  {
+    id: "34",
+    question: "What is the function of bacterial magnetosomes?",
+    year: 2048,
+    chapter: "thirty-four",
+    title: "Bacterial Organelles",
+    choices: [
+      { choice: "Photosynthesis", isAnswer: false },
+      { choice: "Magnetotaxis", isAnswer: true },
+      { choice: "Cell division", isAnswer: false },
+      { choice: "ATP synthesis", isAnswer: false }
+    ],
+    explanation: "Bacterial magnetosomes are membrane-bound organelles containing magnetic crystals. They enable magnetotactic bacteria to orient themselves along the Earth's magnetic field, aiding in navigation through aquatic environments."
+  },
+
+  {
+    id: "35",
+    question: "Which bacterial group is associated with the nitrogen cycle and ammonia oxidation?",
+    year: 2049,
+    chapter: "thirty-five",
+    title: "Bacterial Ecological Roles",
+    choices: [
+      { choice: "Denitrifying bacteria", isAnswer: false },
+      { choice: "Nitrifying bacteria", isAnswer: true },
+      { choice: "Methanogens", isAnswer: false },
+      { choice: "Anaerobic bacteria", isAnswer: false }
+    ],
+    explanation: "Nitrifying bacteria play a crucial role in the nitrogen cycle by converting ammonia into nitrites and then into nitrates. This process, known as ammonia oxidation, contributes to nutrient cycling in ecosystems."
+  },
+
+  {
+    id: "36",
+    question: "What bacterial structure is involved in the formation of biofilms?",
+    year: 2050,
+    chapter: "thirty-six",
+    title: "Bacterial Communities",
+    choices: [
+      { choice: "Flagellum", isAnswer: false },
+      { choice: "Pili", isAnswer: false },
+      { choice: "Extracellular polymeric substance (EPS)", isAnswer: true },
+      { choice: "Ribosome", isAnswer: false }
+    ],
+    explanation: "Biofilms are structured communities of bacteria held together by an extracellular polymeric substance (EPS). This substance, produced by the bacteria, provides a protective matrix and facilitates communication within the biofilm."
+  }
+];
+*/

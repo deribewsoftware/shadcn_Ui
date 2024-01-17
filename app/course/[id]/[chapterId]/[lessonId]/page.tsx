@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { list } from "postcss";
 
 
 
@@ -32,7 +33,8 @@ const [showQuizess,setShowQuizess]=useState(false);
 const [showExplanation,setShowExplanation]=useState(false);
 const [userAnswerData,setUserAnswerData]=useState<any>(answersArray);
 const [userAnswer,setUserAnswer]=useState<any>({id:"",answer:0,disabled:false});
-
+const [index,setIndex]=useState(0)
+const [question,setQuestion]=useState(questions[index])
 
 useEffect(() => {
   setUserAnswerData((prev:any)=>prev.map((item:any)=>{
@@ -43,20 +45,22 @@ return item;
   }));
 },[userAnswer]);
 
+useEffect(() =>{
+  setQuestion(questions[index]);
+},[questions,index]);
+
 
 // console.log("userAnswerData",userAnswerData);
 // console.log("userAnswer",userAnswer);
 
-const onHandleChange = (event:any,id:string)=>{
-  setUserAnswer({id:id,answer:parseInt(event.target.value),disabled:event.target.checked})
-  setShowExplanation(event.target.checked)
-  console.log("onHandleChange",event.target);
-  console.log("onHandleChecked",event.target.checked);
+const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const isAnswerCorrect = selectedAnswer== question.answer;
 
-}
-console.log("userAnsData",userAnswerData);
-
-
+  const onHandleChange = (event:any) => {
+    const selectedValue = event.target.value;
+    setSelectedAnswer(selectedValue);
+  };
+console.log("onHandleselected",selectedAnswer,question.answer,isAnswerCorrect);
 const [currentLesson, setCurrentLesson] = useState(parseInt(params.lessonId) || 1);
 
   const onPrevChange = (data:number) => {
@@ -78,7 +82,14 @@ const [currentLesson, setCurrentLesson] = useState(parseInt(params.lessonId) || 
   };
 
 
+const onPrevQuestion = () => {
+  setIndex((prev)=>prev-1);
+}
+const onNextQuestion = () => {
+  setIndex((prev)=>prev+1);
 
+}
+console.log("index",index)
 
   return ( <div className="flex flex-col gap-20">
     <Navbar/>
@@ -191,76 +202,29 @@ const [currentLesson, setCurrentLesson] = useState(parseInt(params.lessonId) || 
        a willingness to engage with the course material</p>
 
        </div>
-       <div className={`flex justify-center md:p-4 ${showQuizess? "hidden":"block"}`}>
-        <button onClick={()=>setShowQuizess(true)} className="border border-[1.5px] border-slate-400 hover:text-teal-400 hover:border-teal-400 bg-transparent rounded-[5px] py-1 px-3">Start Quizes</button>
-       </div>
+      
+<div className="flex flex-col gap-10 mt-20">
+  <Heading title="Quizzes"/>
+  <div className="flex justify-end"><p>{index+1}/{questions.length}</p></div>
 
-
-       <div className={`flex flex-col gap-4  ${showQuizess? "block":"hidden"} transition duration-500`}>
-        <hr className="h-[2px] bg-slate-400"/>
-       <div className="p-2"> <Heading
-      title="Quizzess About Indroduction  of Bacteria"
-      /></div>
-      <div className="flex flex-col">
-        {/* questions */}
-       {
-        questions.map((question,ind) =>{
-         return  <div key={question.id} className="flex flex-col">
-         
-          <p className="text-lg font-semibold border-b-2 border-teal-400 m-2">{question.id}</p>
-          <p className="p-2 justify-start w-full">{question.question}</p>
-          {
-            question.choices.map((choice,index)=>{
-              const isSelected = (userAnswerData[ind].answer === question.answer)&&(index===question.answer);
-              const isnull = userAnswerData[index].answer ===null;
-              const notAnswer = (userAnswerData[index].answer===index)&&(index!==question.answer)&&userAnswerData[index].disabled&&(userAnswerData[index].answer!==null);
-              return <div key={index} className="m-2">
-              <div className={` flex gap-1 p-1    ${isSelected&&"bg-teal-300"}` }>
-                <input disabled={userAnswerData[ind].answer!==null? true:false} value={index} onChange={()=>onHandleChange(event,question.id)} id={question.id+index} type="radio" name={question.id}/>
-                <label htmlFor={question.id+index}> {choice} </label>
-              </div>
-            </div>
-            })
-          }
-    
-
-{userAnswerData[ind].answer!==null&&
-  <div >
-    <Accordion type="single" collapsible className="w-full p-2 md:p-10" >
-
-
-  <AccordionItem key={ind} value={`${ind}`}className="">
-  <AccordionTrigger ><div className="flex gap-6 text-md text-captalize px-4  text-teal-600">
-  Explanation
-    </div></AccordionTrigger>
-  <AccordionContent className="bg-white">
-    <div className="p-1 bg-teal-50">
-      <p className="p-3">
-      {question.explanation}
-      </p>
+  <div className="flex flex-col gap-2">
+    <div className="flex gap-2">
+      <p>{question.id}</p>
+      <p>{question.question}</p>
     </div>
-  </AccordionContent>
-</AccordionItem>
-
-
-
-
-
-</Accordion>
+    <ul className="p-2">
+        {question.choices.map((choice, index) =>{
+return <li className={` ${isAnswerCorrect? "bg-teal-400":"bg-rose-400"}`} key={index}> <input name={question.id} type="radio" onChange={onHandleChange} value={index} /> <label>{choice}</label></li>
+        })}
+      </ul>
   </div>
-}
+   <div className="px-4 flex justify-between">
+    <button onClick={onPrevQuestion }>Prev</button>
+    <button onClick={onNextQuestion }>Next</button>
+  </div>
 
+</div>
 
-
-
-      </div>
-        })
-       }
-      </div>
-      <div className={`flex justify-center md:p-4 ${showQuizess? "block":"hidden"}`}>
-        <button onClick={()=>setShowQuizess(false)} className="border border-[1.5px] border-slate-400 hover:text-teal-400 hover:border-teal-400 bg-transparent rounded-[5px] py-1 px-3">Close Quizes</button>
-       </div>
-       </div>
    </div>}
    />
    </div>
