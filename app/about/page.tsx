@@ -12,7 +12,7 @@ const Quiz = () => {
   const choice_array=[choice1, choice2, choice3, choice4]
  
 
-  const [selectedOption, setSelectedOption] = useState<string|null>(null);
+  
   const [score, setScore] = useState(0);
   const [indexQuestion ,setIndexQuestion] = useState(0);
   const [question, setQuestion] = useState(questions[indexQuestion]);
