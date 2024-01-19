@@ -7,11 +7,10 @@ import Navbar from "@/components/navbar/Navbar";
 import { courses } from "@/lib/courses";
 import Card from "@/components/card/card";
 import { questions } from "@/lib/questions";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { list } from "postcss";
+
 
 
 
@@ -24,43 +23,79 @@ interface IParams{
 
 const CourseLesson = ({params}:{params:IParams}) => {
 const router=useRouter();
-const answersArray:{[key:string]:any}[]=questions.map((question)=>({id:question.id,answer:null,disabled:false}))
+
 
   
-console.log(answersArray)
-
-const [showQuizess,setShowQuizess]=useState(false);
-const [showExplanation,setShowExplanation]=useState(false);
-const [userAnswerData,setUserAnswerData]=useState<any>(answersArray);
-const [userAnswer,setUserAnswer]=useState<any>({id:"",answer:0,disabled:false});
-const [index,setIndex]=useState(0)
-const [question,setQuestion]=useState(questions[index])
-
-useEffect(() => {
-  setUserAnswerData((prev:any)=>prev.map((item:any)=>{
-if(item.id===userAnswer.id) {
-return{...item,answer:userAnswer.answer,disabled:userAnswer.disabled}
-}
-return item;
-  }));
-},[userAnswer]);
-
-useEffect(() =>{
-  setQuestion(questions[index]);
-},[questions,index]);
 
 
-// console.log("userAnswerData",userAnswerData);
-// console.log("userAnswer",userAnswer);
+const choice1 = useRef<HTMLLIElement>(document.createElement('li'));
+  const choice2 = useRef<HTMLLIElement>(document.createElement('li'));
+  const choice3 = useRef<HTMLLIElement>(document.createElement('li'));
+  const choice4 = useRef<HTMLLIElement>(document.createElement('li'));
+  const choice_array=[choice1, choice2, choice3, choice4]
+ 
 
-const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const isAnswerCorrect = selectedAnswer== question.answer;
+  
+  const [score, setScore] = useState(0);
+  const [indexQuestion ,setIndexQuestion] = useState(0);
+  const [question, setQuestion] = useState(questions[indexQuestion]);
+  const [disabled, setDisabled] = useState(false);
 
-  const onHandleChange = (event:any) => {
-    const selectedValue = event.target.value;
-    setSelectedAnswer(selectedValue);
+  const handleOptionClick = (e:any,ans:number,index:number) => {
+   const isCorrect=e.target.value==ans;
+   setDisabled(e.target.checked)
+   if (isCorrect){
+    e.target.parentElement.classList.add("bg-teal-200");
+    setScore((prev)=>prev+1)
+    
+
+   }else{
+    if (choice_array[ans]?.current) {
+      choice_array[ans].current.classList.add("bg-teal-200");
+    }
+    e.target.parentElement.classList.add("bg-rose-200");
+
+   }
+   
   };
-console.log("onHandleselected",selectedAnswer,question.answer,isAnswerCorrect);
+
+  
+
+
+  const onNextChangeQuestion = ()=>{
+    if(indexQuestion<questions.length){
+      setIndexQuestion((prev)=>prev+=1)
+      choice_array.map((option)=>{
+        option.current.classList.remove("bg-teal-200");
+        option.current.classList.remove("bg-rose-200");
+      })
+      setDisabled(false);
+     
+      
+    }
+   
+    
+  }
+  const onPrevChangeQuestion  = ()=>{
+    if(indexQuestion>0){
+      setIndexQuestion((prev)=>prev-=1)
+      
+     
+      
+    }
+   
+    
+  }
+  
+  useEffect(() => { setQuestion(questions[indexQuestion])},[questions,indexQuestion]);
+
+
+
+
+
+
+  
+
 const [currentLesson, setCurrentLesson] = useState(parseInt(params.lessonId) || 1);
 
   const onPrevChange = (data:number) => {
@@ -82,14 +117,14 @@ const [currentLesson, setCurrentLesson] = useState(parseInt(params.lessonId) || 
   };
 
 
-const onPrevQuestion = () => {
-  setIndex((prev)=>prev-1);
-}
-const onNextQuestion = () => {
-  setIndex((prev)=>prev+1);
+// const onPrevQuestion = () => {
+//   setIndex((prev)=>prev-1);
+// }
+// const onNextQuestion = () => {
+//   setIndex((prev)=>prev+1);
 
-}
-console.log("index",index)
+// }
+
 
   return ( <div className="flex flex-col gap-20">
     <Navbar/>
@@ -203,27 +238,36 @@ console.log("index",index)
 
        </div>
       
-<div className="flex flex-col gap-10 mt-20">
-  <Heading title="Quizzes"/>
-  <div className="flex justify-end"><p>{index+1}/{questions.length}</p></div>
-
-  <div className="flex flex-col gap-2">
-    <div className="flex gap-2">
-      <p>{question.id}</p>
-      <p>{question.question}</p>
+{/* questions */}
+<div className="md:p-4">
+      <div className="flex flex-col md:flex-row justify-between md:px-10 py-2">
+      <h1 className="text-lg font-medium">Indroduction  of Bacteria Quizzes</h1>
+      <h2>score:{score}</h2>
+      <p className="text-slate-600">{indexQuestion+1} out of {questions.length}</p>
+      </div>
+      <hr className="h-[2px] w-full bg-slate-200"/>
+      <div className="mt-4">
+        <div className="flex gap-2 py-2 w-full">
+          <div className="flex  justify-center bg-teal-200 rounded-full h-6 w-6 ">
+            <p className="text-lg font-semibold ">{question.id}</p>
+          </div>
+          <h2>{question.question}</h2>
+        </div>
+        <ul>
+          {question.choices.map((option, index) => (
+            <li ref={choice_array[index]} key={index} className='flex gap-2 p-2'>
+              <input disabled={disabled} type="radio" name="0" value={index} onChange={()=>handleOptionClick(event,question.answer,index)}/>
+              <label>{option}</label>
+            </li>
+          ))}
+        </ul>
+       <div className="flex justify-between px-10 mt-10"> 
+        <button className="border-none bg-teal-300 hover:teal-400 rounded-[5px] px-2 py-1"  onClick={onNextChangeQuestion}>
+          Next Question
+        </button>
+        </div>
+      </div>
     </div>
-    <ul className="p-2">
-        {question.choices.map((choice, index) =>{
-return <li className={` ${isAnswerCorrect? "bg-teal-400":"bg-rose-400"}`} key={index}> <input name={question.id} type="radio" onChange={onHandleChange} value={index} /> <label>{choice}</label></li>
-        })}
-      </ul>
-  </div>
-   <div className="px-4 flex justify-between">
-    <button onClick={onPrevQuestion }>Prev</button>
-    <button onClick={onNextQuestion }>Next</button>
-  </div>
-
-</div>
 
    </div>}
    />
