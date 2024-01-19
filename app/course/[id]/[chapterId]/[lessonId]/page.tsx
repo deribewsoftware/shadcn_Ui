@@ -247,10 +247,10 @@ const [currentLesson, setCurrentLesson] = useState(parseInt(params.lessonId) || 
       </div>
       <hr className="h-[2px] w-full bg-slate-200"/>
       <div className="mt-4">
-        <div className="flex gap-2 py-2 w-full">
-          <div className="flex  justify-center bg-teal-200 rounded-full h-6 w-6 ">
-            <p className="text-lg font-semibold ">{question.id}</p>
-          </div>
+        <div className="flex gap-1 py-2 w-full">
+         
+            <div className="py-1 px-3 text-lg font-semibold  bg-teal-200 rounded-full h-8 w-8 ">{question.id}</div>
+       
           <h2>{question.question}</h2>
         </div>
         <ul>
