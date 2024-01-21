@@ -8,6 +8,10 @@ const Dashboard = () => {
       <SummaryCard/>
       <SummaryCard/>
     </div>
+
+    <div className="">
+      
+    </div>
   
   </div> );
 }
