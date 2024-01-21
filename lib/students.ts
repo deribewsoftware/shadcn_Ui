@@ -9,7 +9,7 @@ export const students = [
   {
     name: "Nahom Amares",
     Grade: "12",
-    image: Nahom
+    image: 'https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/5e/99/df/5e99dfcf-f829-5e05-11e3-d2e856a6271e/pr_source.png/190x190cc.webp'
   },
   {
     name: "Ababa Doe",

@@ -9,9 +9,9 @@ import { useTypewriter } from "react-simple-typewriter";
 
 const Hero = () => {
   const [typeEffect]=useTypewriter({
-    words: ["Embark on a Journey of Limitless Learning Excellence at Alpha Academy.", "Unleash Your Potential", "Ignite Your Passion", "and Welcome a World of Possibilities.", "Join Us in the Pursuit of Knowledge, Innovation, and Success."," Your Alpha Journey Starts Here!"],
+    words: ["Embark on Alpha Academy.", "Unleash Your Potential", "Ignite Your Passion", "and Welcome a World of Possibilities.", "Join Us in the Pursuit of Knowledge, Innovation, and Success."," Your Alpha Journey Starts Here!"],
   loop: true,
-    typeSpeed:100,
+    typeSpeed:90,
     delaySpeed:40,
     
 
@@ -30,7 +30,7 @@ const Hero = () => {
        <Search/>
       </div>
       <div className="flex "> <AvatarGroup
-  renderSurplus={(surplus) => <span>+{surplus.toString()[0]}k</span>}
+  renderSurplus={(surplus) => <span className="overflow-hidden">+{surplus.toString()[0]}k</span>}
   total={4251}
 >
   {students.map((student,index) =>{return  <Avatar key={index} alt={student.name} src={`${student.image}`} />

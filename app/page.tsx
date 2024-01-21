@@ -2,6 +2,7 @@ import Card from '@/components/card/card'
 import Footer from '@/components/footer/footer'
 import Hero from '@/components/hero/hero'
 import Navbar from '@/components/navbar/Navbar'
+import Logo from "../public/liya.jpg"
 
 import { courses } from '@/lib/courses'
 
