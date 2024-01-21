@@ -1,6 +1,7 @@
 export const lessons=[
   {id:"1",
   chapterId:"1",
+  lessonId: "1",
   title:"what is bacteria?",
   introduction:"Bacteria, the microscopic wonders of the living world, represent some of the oldest and most abundant life forms on Earth. These single-celled microorganisms, classified within the domain of prokaryotes, possess a simplicity that belies their profound impact on the planet. Lacking a nucleus and other membrane-bound organelles, bacteria exhibit a remarkable diversity in shape, size, and metabolic capabilities. From the depths of the oceans to the human digestive system, bacteria inhabit an array of environments, demonstrating an adaptability that has allowed them to thrive for billions of years",
   contents:["Bacteria are single-celled microorganisms that are among the simplest and most ancient forms of life on Earth. They belong to the domain of prokaryotes, which means their cells lack a nucleus and other membrane-bound organelles. Unlike eukaryotic cells (which make up plants, animals, fungi, and protists), bacteria have a simpler structure.",
@@ -15,6 +16,7 @@ export const lessons=[
 {
   id: "2",
   chapterId: "1",
+  lessonId: "2",
   title: "Types of Bacteria",
   introduction: "Bacteria exhibit remarkable diversity, with various types based on their shapes, structures, and functions...",
   contents: [
@@ -30,6 +32,7 @@ export const lessons=[
 {
   id: "3",
   chapterId: "1",
+  lessonId: "3",
   title: "Bacterial Reproduction",
   introduction: "The reproduction of bacteria is a vital process for their survival and population growth...",
   contents: [
@@ -45,6 +48,7 @@ export const lessons=[
 {
   id: "4",
   chapterId: "1",
+  lessonId: "4",
   title: "Bacterial Metabolism",
   introduction: "Bacteria exhibit diverse metabolic pathways, influencing their energy sources and ecological roles...",
   contents: [
@@ -60,6 +64,7 @@ export const lessons=[
 {
   id: "5",
   chapterId: "1",
+  lessonId: "5",
   title: "Bacterial Ecology",
   introduction: "Bacteria play essential roles in ecological processes, influencing nutrient cycling and ecosystem dynamics...",
   contents: [
@@ -75,6 +80,7 @@ export const lessons=[
 {
   id: "6",
   chapterId: "1",
+  lessonId: "6",
   title: "Pathogenic Bacteria",
   introduction: "While many bacteria are beneficial, some can cause diseases in plants, animals, and humans...",
   contents: [
@@ -90,6 +96,7 @@ export const lessons=[
 {
   id: "7",
   chapterId: "1",
+  lessonId: "7",
   title: "Extremeophile Bacteria",
   introduction: "Some bacteria thrive in extreme conditions, showcasing their resilience and adaptability...",
   contents: [

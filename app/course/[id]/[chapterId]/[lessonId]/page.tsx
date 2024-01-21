@@ -97,7 +97,7 @@ const choice1 = useRef<HTMLLIElement>(document.createElement('li'));
   
   useEffect(() => { setQuestion(questions[indexQuestion])},[questions,indexQuestion]);
   useEffect(() => {
-    const lessonData=lessons.filter((ls)=>ls.id===params.lessonId&&ls.chapterId===params.chapterId)
+    const lessonData=lessons.filter((ls)=>ls.lessonId===params.lessonId&&ls.chapterId===params.chapterId)
     setLesson(lessonData)
    },[]);
 
