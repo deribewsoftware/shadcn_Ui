@@ -43,6 +43,7 @@ const choice1 = useRef<HTMLLIElement>(document.createElement('li'));
   const [question, setQuestion] = useState(questions[indexQuestion]);
   const [disabled, setDisabled] = useState(false);
   const [lesson,setLesson]=useState<any>(null);
+  const [lessonsData,setLessons]=useState<any>(null);
   const[showSubmit, setShowSubmit] = useState(false);
 
   const handleOptionClick = (e:any,ans:number,index:number) => {
@@ -97,8 +98,10 @@ const choice1 = useRef<HTMLLIElement>(document.createElement('li'));
   
   useEffect(() => { setQuestion(questions[indexQuestion])},[questions,indexQuestion]);
   useEffect(() => {
-    const lessonData=lessons.filter((ls)=>ls.lessonId===params.lessonId&&ls.chapterId===params.chapterId)
+    const  lessonsData=lessons.filter((ls:any)=>ls.chapterId===params.chapterId)
+    const lessonData=lessonsData.filter((ls:any)=>ls.lessonId===params.lessonId)
     setLesson(lessonData)
+    setLessons(lessonsData)
    },[]);
 
 
@@ -119,7 +122,7 @@ const [currentLesson, setCurrentLesson] = useState(parseInt(params.lessonId) || 
       setCurrentLesson(newLessonId);
     }
     else{
-      router.push(`/course/${params.id}/${params.chapterId}/${lessons.length}`);
+      router.push(`/course/${params.id}/${params.chapterId}/${lessonsData.length}`);
 
     }
     router.refresh();
@@ -128,7 +131,7 @@ const [currentLesson, setCurrentLesson] = useState(parseInt(params.lessonId) || 
   const onNextChange = () => {
     // You should check whether the next lesson exists based on your logic
     
-    if(currentLesson<lessons.length){
+    if(currentLesson<lessonsData.length){
       const newLessonId = currentLesson + 1;
     router.push(`/course/${params.id}/${params.chapterId}/${newLessonId}`);
     setCurrentLesson(newLessonId);
@@ -174,7 +177,7 @@ const onsubmit = () => {
     </div>
    <div className="p-2 flex flex-col justify-between md:flex-row"> 
    <Heading title={lesson[0].title}/>
-   <p className=" text-slate-400  ">Lesson:{lesson[0].id}</p>
+   <p className=" text-slate-400  ">Lesson:{lesson[0].lessonId}</p>
       </div>
       <p className="bg-teal-100 p-3 rounded-[5px]">{lesson[0].introduction}</p>
 
