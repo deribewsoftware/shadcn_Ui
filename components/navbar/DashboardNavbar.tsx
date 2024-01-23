@@ -4,7 +4,7 @@ import Logo from "../../public/alpha.png";
 
 const DashboardNavbar = () => {
   return (
-    <div className={`w-full bg-white px-2 z-50 h-12 items-center   flex justify-between flex-wrap overflow-x-hidden shadow-md shadow-slate-300  fixed   duration-300`}>
+    <div className={`overflow-hidden w-full bg-white px-2 z-50 h-12 items-center   flex justify-between flex-wrap overflow-x-hidden shadow-md shadow-slate-300  fixed   duration-300`}>
     <div className="flex w-full md:w-auto gap-20 items-center justify-between px-2 md:px-0">
     <div className="flex gap-2"><Image src={Logo} alt="logo" className="w-10 h-10 rounded-full" height={30} width={30}/>
      <h1 className="font-semibold text-xl md:text-3xl py-2 overflow-hidden">

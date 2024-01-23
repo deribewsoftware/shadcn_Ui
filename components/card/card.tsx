@@ -24,7 +24,7 @@ const Card:React.FC<CardProps> = ({id,subject,category,cover,price,rating}) => {
     </div>
     <div className="flex flex-col p-3 gap-4">
       <div className="flex justify-between px-2">
-        <Link href={`category/${category}`} className="bg-gray-200 px-1 cursor-pointer rounded-full items-center text-center text-sm">{category}</Link>
+        <Link href={`/category/${category}`} className="bg-gray-200 px-1 cursor-pointer rounded-full items-center text-center text-sm">{category}</Link>
         <div  className="px-1  bg-teal-200  rounded-full items-center text-center text-sm font-medium">{price}ETB</div>
       </div>
       <div className="flex justify-center">

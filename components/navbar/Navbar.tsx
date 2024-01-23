@@ -24,7 +24,7 @@ const Navbar = () => {
   }, []);
 
 
-  return ( <div className={`w-full bg-slate-100 px-2 z-50 h-12 items-center   flex justify-between flex-wrap overflow-x-hidden ${isScroll? "shadow-md shadow-slate-300  fixed  ":""} duration-300`}>
+  return ( <div className={`overflow-hidden w-full bg-slate-100 px-2 z-50 h-12 items-center   flex justify-between flex-wrap overflow-x-hidden ${isScroll? "shadow-md shadow-slate-300  fixed  ":""} duration-300 z-50`}>
     <div className="flex gap-2"><Image src={Logo} alt="logo" className="w-10 h-10 rounded-full" height={30} width={30}/>
      <h1 className="font-semibold text-xl md:text-3xl py-2 overflow-hidden">
       <span className="text-blue-600">Alpha</span>

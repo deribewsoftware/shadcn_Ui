@@ -13,3 +13,8 @@
   background-color: red;
 }
 
+::-webkit-scrollbar{
+  width: 6px;
+  background-color:teal;
+  z-index: -10px;
+}
