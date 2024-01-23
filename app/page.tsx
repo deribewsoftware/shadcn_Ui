@@ -18,7 +18,7 @@ export default function Home() {
       <h1 className='w-full text-xl md:text-4xl font-semibold border-b pl-4'>Most common Courses</h1>
 
   
-      <div className='flex justify-center flex-wrap gap-8 md:px-10'>
+      <div className='grid grid-cols-1 md:grid-cols-4 justify-center flex-wrap gap-8 p-4 md:px-10'>
 
         {courses.map((course,index)=>{
           return <Card
@@ -42,22 +42,22 @@ export default function Home() {
 
 
     <h1 className='w-full text-2xl md:text-4xl font-semibold border-b mt-10 pl-4'>New Coming  Courses</h1>
-    <div className='flex justify-center flex-wrap gap-8 md:px-10'>
+    <div className='grid grid-cols-1 md:grid-cols-4 justify-center flex-wrap gap-8 p-4 md:px-10'>
 
-{courses.map((course,index)=>{
-  return <Card
-  key={index}
-      id={course.id}
-      category={course.category}
-      price={course.price}
-      subject={course.subject}
-      rating={course.rating}
-      cover={course.cover}  />
+        {courses.map((course,index)=>{
+          return <Card
+          key={index}
+              id={course.id}
+              category={course.category}
+              price={course.price}
+              subject={course.subject}
+              rating={course.rating}
+              cover={course.cover}  />
+      
+        })}
 
-})}
 
-
-</div>
+      </div>
 
     </div>
 

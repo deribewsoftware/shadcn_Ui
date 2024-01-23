@@ -1,13 +1,19 @@
 import { ReactNode } from "react";
 import { ToggleProvider } from "./toggleProvider";
+import { ThemeProvider } from "./themeProvider";
 
 interface AppProviderProps{
   children:ReactNode;
 }
 const AppProvider:React.FC<AppProviderProps> = ({children}) => {
-  return ( <ToggleProvider>
+  return (  <ThemeProvider
+    attribute="class"
+    defaultTheme="system"
+    enableSystem
+    disableTransitionOnChange
+  ><ToggleProvider>
     {children}
-  </ToggleProvider> );
+  </ToggleProvider> </ThemeProvider>);
 }
  
 export default AppProvider;

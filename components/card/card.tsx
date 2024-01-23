@@ -1,6 +1,8 @@
 import { Rating } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import Container from "../container/container";
+
 
 
 
@@ -18,28 +20,30 @@ interface CardProps{
 
 
 const Card:React.FC<CardProps> = ({id,subject,category,cover,price,rating}) => {
-  return ( <div className="w-full mx-4 md:mx-0 md:w-72 h-auto border bg-white   rounded-[5px] border border-slate-400 border-[1.5px]  hover:shadow-teal-300  hover:border-teal-500  hover:shadow-lg duration-300 hover">
-    <div className="w-full ">
-      <Image src={cover} alt={subject} className="h-[200px] w-full rounded-t-[5px]"/>
+  return ( <Container
+  childern={<div className="w-full md:w-72 h-auto  ">
+  <div className="w-full ">
+    <Image src={cover} alt={subject} className="h-[200px] w-full rounded-t-[5px]"/>
+  </div>
+  <div className="flex flex-col p-3 gap-4">
+    <div className="flex justify-between px-2">
+      <Link href={`/category/${category}`} className="bg-gray-200 px-1 cursor-pointer rounded-full items-center text-center text-sm">{category}</Link>
+      <div  className="px-1  bg-teal-200  rounded-full items-center text-center text-sm font-medium">{price}ETB</div>
     </div>
-    <div className="flex flex-col p-3 gap-4">
-      <div className="flex justify-between px-2">
-        <Link href={`/category/${category}`} className="bg-gray-200 px-1 cursor-pointer rounded-full items-center text-center text-sm">{category}</Link>
-        <div  className="px-1  bg-teal-200  rounded-full items-center text-center text-sm font-medium">{price}ETB</div>
-      </div>
-      <div className="flex justify-center">
-        <h1 className="hidden md:block text-xl font-semibold p-1">{subject.length>21? subject.substring(0,19)+"...":subject}</h1>
-        <h1 className=" md:hidden text-2xl font-semibold p-1">{subject.length>30? subject.substring(0,30)+"...":subject}</h1>
-      </div>
-      <div className="flex justify-center"><Rating readOnly value={rating} size="medium"/></div>
+    <div className="flex justify-center">
+      <h1 className="hidden md:block text-xl font-semibold p-1">{subject.length>21? subject.substring(0,19)+"...":subject}</h1>
+      <h1 className=" md:hidden text-2xl font-semibold p-1">{subject.length>30? subject.substring(0,30)+"...":subject}</h1>
+    </div>
+    <div className="flex justify-center"><Rating readOnly value={rating} size="medium"/></div>
 
-    </div>
-    <div className="m-3">
-    <Link href={`/course/${id}`} className="w-full flex justify-center border border-slate-400 hover:border-slate-400 hover:bg-teal-600 hover:text-white rounded  duration-300 p-2">
-      <p className="text-lg font-medium ">Get started</p>
-    </Link>
-    </div>
-  </div> );
+  </div>
+  <div className="m-3">
+  <Link href={`/course/${id}`} className="w-full flex justify-center border border-slate-400 hover:border-slate-400 hover:bg-teal-600 hover:text-white rounded  duration-300 p-2">
+    <p className="text-lg font-medium ">Get started</p>
+  </Link>
+  </div>
+</div>}
+  /> );
 }
  
 export default Card;
