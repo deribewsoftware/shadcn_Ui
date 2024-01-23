@@ -1,8 +1,11 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import Logo from "../../public/alpha.png";
+import { useToggle } from '@/hooks/use.toggle';
 
 const DashboardNavbar = () => {
+  const {onOpenChange} =useToggle()
   return (
     <div className={`overflow-hidden w-full bg-white px-2 z-50 h-12 items-center   flex justify-between flex-wrap overflow-x-hidden shadow-md shadow-slate-300  fixed   duration-300`}>
     <div className="flex w-full md:w-auto gap-20 items-center justify-between px-2 md:px-0">
@@ -11,7 +14,7 @@ const DashboardNavbar = () => {
       <span className="text-blue-600">Alpha</span>
     <span className="text-teal-600"> Academy</span>
      </h1></div>
-     <div className="cursor-pointer hover:bg-slate-200 p-2 rounded-full">
+     <button onClick={onOpenChange}  className="outline-none cursor-pointer hover:bg-slate-200 p-2 rounded-full">
     <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -27,7 +30,7 @@ const DashboardNavbar = () => {
     <line x1="3" y1="6" x2="21" y2="6"></line>
     <line x1="3" y1="18" x2="21" y2="18"></line>
   </svg>
-    </div>
+    </button>
     </div>
 
      

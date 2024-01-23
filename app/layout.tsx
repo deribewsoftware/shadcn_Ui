@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Josefin_Sans } from 'next/font/google'
 import './globals.css'
+import AppProvider from '@/providers/appProvider'
 
 const josefin= Josefin_Sans({ subsets: ['latin'] ,weight:['400', '500','600','700']})
 
@@ -16,7 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${josefin.className} bg-slate-100 overflow-x-hidden mx-auto`}>{children}</body>
+      <body className={`${josefin.className} bg-slate-100 overflow-x-hidden mx-auto`}>
+        <AppProvider>
+        {children}
+        </AppProvider>
+        </body>
     </html>
   )
 }
