@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${josefin.className} bg-slate-100 overflow-x-hidden mx-auto dark:bg-gray-900`}>
+      <body className={`${josefin.className} bg-slate-100 dark:text-gray-100 overflow-x-hidden mx-auto dark:bg-gray-900 `}>
         <AppProvider>
         {children}
         </AppProvider>

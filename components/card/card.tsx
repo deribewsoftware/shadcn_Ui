@@ -27,8 +27,8 @@ const Card:React.FC<CardProps> = ({id,subject,category,cover,price,rating}) => {
   </div>
   <div className="flex flex-col p-3 gap-4">
     <div className="flex justify-between px-2">
-      <Link href={`/category/${category}`} className="bg-gray-200 px-1 cursor-pointer rounded-full items-center text-center text-sm">{category}</Link>
-      <div  className="px-1  bg-teal-200  rounded-full items-center text-center text-sm font-medium">{price}ETB</div>
+      <Link href={`/category/${category}`} className="bg-gray-200 dark:bg-gray-700 hover:text-blue-500 hover:underline transition py-1 px-2 cursor-pointer rounded-full items-center text-center text-sm">{category}</Link>
+      <div  className="py-1 px-2   bg-teal-200 dark:bg-gray-700  rounded-full items-center text-center text-sm font-medium">{price}ETB</div>
     </div>
     <div className="flex justify-center">
       <h1 className="hidden md:block text-xl font-semibold p-1">{subject.length>21? subject.substring(0,19)+"...":subject}</h1>

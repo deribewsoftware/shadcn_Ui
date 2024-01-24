@@ -9,12 +9,12 @@ import { courses } from '@/lib/courses'
 
 export default function Home() {
   return (
-   <div className="flex flex-col overflow-x-hidden">
+   <div className="flex flex-col overflow-hidden">
     <Navbar/>
     <Hero/>
    
-    <main className='md:flex md:justify-center w-full pb-10'>
-    <div className="flex flex-col gap-10">
+    <main className='md:flex md:justify-center w-full pb-10 overflow-hidden'>
+    <div className="flex flex-col gap-10 overflow-hidden">
       <h1 className='w-full text-xl md:text-4xl font-semibold border-b pl-4'>Most common Courses</h1>
 
   

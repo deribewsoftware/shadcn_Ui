@@ -175,18 +175,18 @@ const onsubmit = () => {
    rounded-[5px]">Next</button>
      
     </div>
-   <div className="p-2 flex flex-col justify-between md:flex-row"> 
+   <div className="p-2 flex flex-col justify-between md:flex-row dark:text-300"> 
    <Heading title={lesson[0].title}/>
    <p className=" text-slate-400  ">Lesson:{lesson[0].lessonId}</p>
       </div>
-      <p className="bg-teal-100 p-3 rounded-[5px]">{lesson[0].introduction}</p>
+      <p className="bg-teal-100 dark:bg-gray-700 p-3 rounded-[5px]">{lesson[0].introduction}</p>
 
     <div className="">
       {lesson[0].contents.map((content:string,index:number)=><p key={index} className="p-2">{content}</p>)}
     </div>
       
-       <div className="bg-sky-200 flex flex-col gap-2 p-3 rounded-[5px] border-l-[3px] border-sky-600">
-        <h1 className="text-sky-600 font-medium text-md">Remark</h1>
+       <div className="bg-sky-200 flex flex-col gap-2 p-3 rounded-[5px] border-l-[3px] border-sky-600 dark:border-gray-900 dark:bg-gray-700">
+        <h1 className="text-sky-600 dark:text-white font-medium text-md">Remark</h1>
        <p>{lesson[0].remark}</p>
        </div>
        
@@ -194,7 +194,7 @@ const onsubmit = () => {
       
       
       
-       <div className=" flex flex-col text-slate-600 font-serif gap-2">
+       <div className=" flex flex-col text-slate-600 dark:text-gray-400 font-serif gap-2">
        <h1 className="font-semibold mt-2 text-lg">Conclusions</h1>
        <p>{lesson[0].summary}</p>
 
@@ -211,7 +211,7 @@ const onsubmit = () => {
       <div className="mt-4">
         <div className="flex gap-1 py-2 w-full">
          
-            <div className="py-1 px-3 text-lg font-semibold  bg-teal-200 rounded-full ">{question.id}</div>
+            <div className="py-1 px-3 text-lg font-semibold  bg-teal-200 dark:bg-gray-700 rounded-full ">{question.id}</div>
        
           <h2>{question.question}</h2>
         </div>
@@ -245,9 +245,9 @@ const onsubmit = () => {
 
          } </div>
        <div className="flex justify-end px-10 mt-10"> 
-        {showSubmit? <button className="border-none bg-teal-300 hover:teal-400 rounded-[5px] px-2 py-1"  onClick={onsubmit}>
+        {showSubmit? <button className="dark:bg-gray-700 dark:hover:bg-gray-600 border-none bg-teal-300 hover:teal-400 rounded-[5px] px-2 py-1"  onClick={onsubmit}>
           submit
-        </button>:<button className="border-none bg-teal-300 hover:teal-400 rounded-[5px] px-2 py-1"  onClick={onNextChangeQuestion}>
+        </button>:<button className="dark:bg-gray-700 dark:hover:bg-gray-600 border-none bg-teal-300 hover:teal-400 rounded-[5px] px-2 py-1"  onClick={onNextChangeQuestion}>
           Next Question
         </button>}
         </div>

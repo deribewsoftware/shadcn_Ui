@@ -15,6 +15,7 @@ const Category = ({params}:{params:IPrams}) => {
 
 <div className="flex 
  bg-teal-500
+ dark:bg-gray-800
   w-[90%]
    m-10
     h-72 

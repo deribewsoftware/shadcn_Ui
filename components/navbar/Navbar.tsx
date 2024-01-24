@@ -28,12 +28,15 @@ const Navbar = () => {
   }, []);
 
 const {setTheme}=useTheme();
-  return ( <div className={`overflow-hidden w-full bg-slate-100 dark:bg-gray-800 px-2 z-50 h-12 items-center   flex justify-between flex-wrap overflow-x-hidden ${isScroll? "shadow-md shadow-slate-300 dark:shadow-black fixed  ":""} duration-300 z-50`}>
+  return ( <div className={`overflow-hidden w-full bg-slate-100 dark:bg-gray-900 px-2 z-50 h-12 items-center   flex justify-between flex-wrap overflow-x-hidden ${isScroll? "shadow-md shadow-slate-300 dark:shadow-black fixed  ":""} duration-300 z-50`}>
     <div className="flex gap-2"><Image src={Logo} alt="logo" className="w-10 h-10 rounded-full" height={30} width={30}/>
      <h1 className="font-semibold text-xl md:text-3xl py-2 overflow-hidden">
       <span className="text-blue-600">Alpha</span>
     <span className="text-teal-600"> Academy</span>
      </h1></div>
+
+
+     <div className="flex md:gap-20  justify-center">
     <div className=" hidden md:block">
       <div className="flex gap-4"><div className="">Category</div>
       <div className="">Courses</div>
@@ -68,7 +71,7 @@ const {setTheme}=useTheme();
 <button className="px-4 hidden dark:block" onClick={() => setTheme("light")}>
   <LuSunMedium size={24}/>
   </button>
-  </div> );
+  </div> </div>);
 }
  
 export default Navbar;

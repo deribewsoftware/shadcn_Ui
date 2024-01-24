@@ -25,7 +25,7 @@ router.refresh()
          <h5>Chapter:{courseContent.chapter}</h5>
          <h5>{courseContent.title}</h5>
           </div></AccordionTrigger>
-        <AccordionContent className="bg-white">
+        <AccordionContent className="bg-white dark:bg-gray-700">
           <ul className="">
             {courseContent.lessons.map((lesson,ind)=>{
 return <li onClick={()=>onLessonRouter(courseId,`${index+1}`,`${ind+1}`)} className="flex text-md  gap-2  hover:underline  hover:text-teal-500 p-1 transition duration-300" key={ind}>
