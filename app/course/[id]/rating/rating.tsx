@@ -1,3 +1,4 @@
+import Heading from "@/components/Heading/Heading";
 import Container from "@/components/container/container";
 import { IoIosStar } from "react-icons/io";
 const RatingCourse = () => {
@@ -14,7 +15,7 @@ const RatingCourse = () => {
     <div className="flex justify-center md:px-2 w-full  flex-col md:flex-row">
       <div className="flex justify-center items-center w-full md:w-1/4 sm:py-10 ">
        <div className="border border-teal-400 border-[1.5px]   p-10 m-4 rounded-[5px]">
-       <h1 className="text-3xl md:text-6xl text-teal-500 font-bold">4.5</h1>
+       <Heading title="4.5"/>
        </div>
       </div>
       <div className="flex flex-col justify-center  p-1 w-full md:w-3/4">

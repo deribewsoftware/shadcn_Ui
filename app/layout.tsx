@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import { Josefin_Sans } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import './globals.css'
 import AppProvider from '@/providers/appProvider'
 
-const josefin= Josefin_Sans({ subsets: ['latin'] ,weight:['400', '500','600','700']})
+const josefin= Poppins({ subsets: ['latin'] ,weight:['400', '500','600','700']})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
