@@ -49,11 +49,11 @@ const {setTheme}=useTheme();
       title="Sign Up"
       >
         <div className="p-3 flex flex-col gap-6">
-          <Input type="text" label="Username"/>
+          {/* <Input type="text" label="Username"/>
           <Input type="phone" label="Phone"/>
           <Input type="password" label="Password"/>
           
-          <Input type="password" label="Confirm Password"/>
+          <Input type="password" label="Confirm Password"/> */}
         </div>
       </Modal></div>
       <div className="hover:bg-slate-200 dark:hover:bg-gray-700">
@@ -62,8 +62,8 @@ const {setTheme}=useTheme();
       title="Sign In"
       >
         <div className="p-3 flex flex-col gap-6">
-          <Input type="text" label="Username"/>
-          <Input type="password" label="Password"/>
+          {/* <Input type="text" label="Username"/>
+          <Input type="password" label="Password"/> */}
         </div>
       </Modal>
       </div>
