@@ -16,6 +16,9 @@ const CreateCourse = () => {
      
       "subject":"",
       "price":0.00,
+      "description":[],
+      "requirements":[],
+    
      
 
     }
