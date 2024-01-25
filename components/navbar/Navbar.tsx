@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react"
 import { GoMoon } from "react-icons/go";
 import { LuSunMedium } from "react-icons/lu";
+import Modal from "../modal/modal";
+import Input from "../input/input";
 
 const Navbar = () => {
   const [isScroll,setScroll] =useState(false);
@@ -38,11 +40,33 @@ const {setTheme}=useTheme();
 
      <div className="flex md:gap-20  justify-center">
     <div className=" hidden md:block">
-      <div className="flex gap-4"><div className="">Category</div>
-      <div className="">Courses</div>
-      <div className="">Cart</div>
-      <div className="">Signup</div>
-      <div className="">Login</div>
+      <div className="flex gap-4">
+        <div className="p-1 hover:bg-slate-200 dark:hover:bg-gray-700">Category</div>
+      <div className="p-1 hover:bg-slate-200 dark:hover:bg-gray-700">Courses</div>
+      <div className="p-1 hover:bg-slate-200 dark:hover:bg-gray-700">Cart</div>
+      <div className="hover:bg-slate-200 dark:hover:bg-gray-700">  <Modal
+      label="Signup"
+      title="Sign Up"
+      >
+        <div className="p-3 flex flex-col gap-6">
+          <Input type="text" label="Username"/>
+          <Input type="phone" label="Phone"/>
+          <Input type="password" label="Password"/>
+          
+          <Input type="password" label="Confirm Password"/>
+        </div>
+      </Modal></div>
+      <div className="hover:bg-slate-200 dark:hover:bg-gray-700">
+        <Modal
+      label="Login"
+      title="Sign In"
+      >
+        <div className="p-3 flex flex-col gap-6">
+          <Input type="text" label="Username"/>
+          <Input type="password" label="Password"/>
+        </div>
+      </Modal>
+      </div>
     </div></div>
 
     <div className="md:hidden">
