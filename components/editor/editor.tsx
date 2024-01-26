@@ -21,7 +21,7 @@ const TextEditor = () => {
     'list', 'bullet', 'link', 'image',
   ];
   console.log("value: ", value);
-  return (  <ReactQuill modules={modules} formats={formats} theme="snow" value={value} onChange={setValue} />);
+  return (  <ReactQuill  modules={modules} formats={formats} theme="snow" value={value} onChange={setValue} />);
 }
  
 export default TextEditor;
