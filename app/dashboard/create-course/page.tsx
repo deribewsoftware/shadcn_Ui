@@ -2,6 +2,7 @@
 import Heading from "@/components/Heading/Heading";
 import Button from "@/components/button/button";
 import Container from "@/components/container/container";
+import TextEditor from "@/components/editor/editor";
 import FileInput from "@/components/input/fileInput";
 import Input from "@/components/input/input";
 import Select from "@/components/input/select";
@@ -47,6 +48,7 @@ const CreateCourse = () => {
           <Input register={register} errors={errors} label="Price" type="number" id="price" required/>
           
           <Textarea/>
+          <TextEditor/>
 
           <div className="p-4 flex justify-center">
             <Button onClick={handleSubmit(onSubmit)} title="Submit"/>
