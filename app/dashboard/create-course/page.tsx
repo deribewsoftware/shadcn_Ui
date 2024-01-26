@@ -18,6 +18,7 @@ const CreateCourse = () => {
       "price":0.00,
       "description":[],
       "requirements":[],
+      "cover":""
     
      
 
@@ -36,7 +37,11 @@ const CreateCourse = () => {
           <Select/>
           <Input id="subject" register={register} errors={errors}  label="Subject" type="text" required/>
 
-          <FileInput/>
+          <FileInput
+              register={register}
+              id="cover" 
+              errors={errors}          
+          />
         
         
           <Input register={register} errors={errors} label="Price" type="number" id="price" required/>
