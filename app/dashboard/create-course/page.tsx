@@ -7,6 +7,8 @@ import FileInput from "@/components/input/fileInput";
 import Input from "@/components/input/input";
 import Select from "@/components/input/select";
 import Textarea from "@/components/input/textarea";
+import {Editor} from  'primereact/editor'
+
 
 import { FieldValues, useForm ,SubmitHandler} from "react-hook-form";
 
@@ -48,7 +50,8 @@ const CreateCourse = () => {
           <Input register={register} errors={errors} label="Price" type="number" id="price" required/>
           
           <Textarea/>
-          <TextEditor/>
+          {/* <TextEditor/> */}
+          <Editor/>
 
           <div className="p-4 flex justify-center">
             <Button onClick={handleSubmit(onSubmit)} title="Submit"/>

@@ -1,27 +1,34 @@
 "use client"
 import { useState } from 'react';
-import ReactQuill from 'react-quill';
+import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import './editor.css'
 
 const TextEditor = () => {
 
   const [value, setValue] = useState('');
-  const modules = {
-    toolbar: [
-      [{ 'header': [1, 2,3,4,5,6, false] }],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-      ['link', 'image'],
-      ['clean'],
-    ],
-  };
+  const quill = new Quill('#editor', {
+   
+    modules: {
+      toolbar: '#toolbar'
+    
+  }});
 
   const formats = [
-    'header', 'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'header', 'bold', 'italic', 'underline', 'strike', 'blockquote',"color",
     'list', 'bullet', 'link', 'image',
   ];
   console.log("value: ", value);
-  return (  <ReactQuill  modules={modules} formats={formats} theme="snow" value={value} onChange={setValue} />);
+  return ( <div >
+    <div id="toolbar">
+ 
+  <button className="ql-bold"></button>
+  <button className="ql-italic"></button>
+
+ 
+  <button id="custom-button"></button>
+</div>
+    <div id="editor" className='w-full'></div><ReactQuill  className='custom-editor' formats={formats} theme="snow" value={value} onChange={setValue} /></div> );
 }
  
 export default TextEditor;
