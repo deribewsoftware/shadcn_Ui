@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 "use client"
 
 import { useTheme } from "next-themes";
@@ -9,6 +10,7 @@ import { GoMoon } from "react-icons/go";
 import { LuSunMedium } from "react-icons/lu";
 import Modal from "../modal/modal";
 import Input from "../input/input";
+import Dropdown from "../dropdown/dropdown";
 
 const Navbar = () => {
   const [isScroll,setScroll] =useState(false);
@@ -30,6 +32,25 @@ const Navbar = () => {
   }, []);
 
 const {setTheme}=useTheme();
+
+const category=[
+  {
+    name: "Highschool",
+    url: "category/Highschool"
+  },
+  {
+    name: "Freshman",
+    url: "category/Freshman"
+  },
+  {
+    name: "Remedial",
+    url: "category/Remedial"
+  },
+  {
+    name: "Development",
+    url: "category/Development"
+  }
+]
   return ( <div className={`overflow-hidden w-full bg-slate-100 dark:bg-gray-900 px-2 z-50 h-12 items-center   flex justify-between flex-wrap overflow-x-hidden ${isScroll? "shadow-md shadow-slate-300 dark:shadow-black fixed  ":""} duration-300 z-50`}>
     <div className="flex gap-2"><Image src={Logo} alt="logo" className="w-10 h-10 rounded-full" height={30} width={30}/>
      <h1 className="font-semibold text-xl md:text-2xl py-2 overflow-hidden">
@@ -41,7 +62,10 @@ const {setTheme}=useTheme();
      <div className="flex md:gap-20  justify-center">
     <div className=" hidden md:block">
       <div className="flex gap-4">
-        <div className="p-1 hover:bg-slate-200 dark:hover:bg-gray-700">Category</div>
+        <div className="p-1 hover:bg-slate-200 dark:hover:bg-gray-700">
+          <Dropdown  label="Category" contents={category} />
+            
+        </div>
       <div className="p-1 hover:bg-slate-200 dark:hover:bg-gray-700">Courses</div>
       <div className="p-1 hover:bg-slate-200 dark:hover:bg-gray-700">Cart</div>
       <div className="hover:bg-slate-200 dark:hover:bg-gray-700">  <Modal

@@ -2,13 +2,8 @@
 @tailwind components;
 @tailwind utilities;
  
-body{
-  overflow: hidden;
-}
-*{
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
+
+
 .correct{
   background-color: aquamarine;
 }
@@ -16,8 +11,3 @@ body{
   background-color: red;
 }
 
-::-webkit-scrollbar{
-  width: 6px;
-  background-color:teal;
-  z-index: -10px;
-}

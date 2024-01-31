@@ -18,5 +18,9 @@ const config: Config = {
     },
   },
   plugins: [],
+  corePlugins: {
+    // Disable the preflight plugin to prevent default styles from being included
+    preflight: false,
+  },
 }
 export default config

@@ -51,14 +51,17 @@ const choice1 = useRef<HTMLLIElement>(document.createElement('li'));
    setDisabled(e.target.checked)
    if (isCorrect){
     e.target.parentElement.classList.add("bg-teal-200");
+    e.target.parentElement.classList.add("dark:bg-teal-600");
     setScore((prev)=>prev+1)
     
 
    }else{
     if (choice_array[ans]?.current) {
       choice_array[ans].current.classList.add("bg-teal-200");
+      choice_array[ans].current.classList.add("dark:bg-teal-600");
     }
     e.target.parentElement.classList.add("bg-rose-200");
+    e.target.parentElement.classList.add("dark:bg-rose-600");
 
    }
    
@@ -72,7 +75,9 @@ const choice1 = useRef<HTMLLIElement>(document.createElement('li'));
       setIndexQuestion((prev)=>prev+=1)
       choice_array.map((option)=>{
         option.current.classList.remove("bg-teal-200");
+        option.current.classList.remove("dark:bg-teal-600");
         option.current.classList.remove("bg-rose-200");
+        option.current.classList.remove("dark:bg-rose-600");
       })
       setDisabled(false);
      
@@ -149,7 +154,7 @@ const onsubmit = () => {
   alert("score:"+`${score}/${questions.length}`);
 }
 
-  return ( <div className="flex flex-col gap-20">
+  return ( <div className="flex flex-col gap-20 font-serif text-[18px]">
     <Navbar/>
     <div className="md:flex w-full justify-center gap-20 p-2">
    <div className="flex flex-col w-full md:w-7/12"> 
@@ -232,7 +237,7 @@ const onsubmit = () => {
    <h5>Explanation</h5>
    
     </div></AccordionTrigger>
-  <AccordionContent className="bg-teal-100 p-2">
+  <AccordionContent className="bg-teal-100 dark:bg-gray-700  p-2">
    <p>{question.explanation}</p>
   </AccordionContent>
 </AccordionItem>
