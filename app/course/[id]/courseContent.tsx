@@ -17,20 +17,20 @@ router.push(`/course/${courseId}/${chapterId}/${lessonId}`)
 router.refresh()
   }
   return (
-    <Accordion type="single" collapsible className="w-full p-2" >
+    <Accordion type="single" collapsible className="w-full p-1" >
 
       {coursesContents.map((courseContent,index) =>{
-        return <AccordionItem key={index} value={`${index}`}className="border border-slate-200  my-4 px-1 rounded-[6px]">
-        <AccordionTrigger ><div className="flex gap-6 text-md text-captalize">
-         <h5>Chapter:{courseContent.chapter}</h5>
-         <h5>{courseContent.title}</h5>
+        return <AccordionItem key={index} value={`${index}`}className="border border-slate-200 dark:border-gray-600 px-2 md:px-6 m-2 rounded-[6px] ">
+        <AccordionTrigger ><div className="flex gap-1 md:gap-4 text-md text-captalize  ">
+         <p className="text-sm md:text-lg text-rose-600 dark:text-teal-400">Chapter:{courseContent.chapter}</p>
+         <p className="text-sm md:text-lg">{courseContent.title}</p>
           </div></AccordionTrigger>
-        <AccordionContent className="bg-white dark:bg-gray-700">
+        <AccordionContent className="bg-background">
           <ul className="">
             {courseContent.lessons.map((lesson,ind)=>{
 return <li onClick={()=>onLessonRouter(courseId,`${index+1}`,`${ind+1}`)} className="flex text-md  gap-2  hover:underline  hover:text-teal-500 p-1 transition duration-300" key={ind}>
-  <h5>Lesson:{ind+1}</h5>
-  <h5>{lesson}</h5>
+  <p>Lesson:{ind+1}</p>
+  <p>{lesson}</p>
 </li>
             })}
           </ul>

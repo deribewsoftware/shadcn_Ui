@@ -64,8 +64,8 @@ const [courseData, setCourseData]=useState<any>({})
   const onSubmit=()=>{
     console.log("onSubmitData:-",courseData);
   }
-  return ( <div className="flex flex-col w-full lg:w-8/12">
-    <div className="flex flex-col gap-20 w-full">
+  return ( <div className="flex flex-col w-full lg:w-8/12 ">
+    <div className="flex flex-col gap-20 w-full pb-16 mb-16">
       <Heading title="Create Courses"/>
       {!isnext&&<Container
       childern={

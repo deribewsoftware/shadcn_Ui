@@ -1,22 +1,12 @@
-.editor-container {
-  position: relative;
-  /* Set the desired height for the editor container */
-}
 
-.toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background-color: white; /* Adjust background color as needed */
-}
-.ql-container.ql-snow {
-  height: auto;
-}
-.ql-editor {
+
+/* .ql-editor {
   height: 150px;
-  overflow-y: scroll;
+  background-color: aquamarine;
+  border-radius: 5px;
+
 }
 
-#editor-container {
-  height: 375px;
-}
+#toolbar{
+  background-color: blueviolet;
+} */
