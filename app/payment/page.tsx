@@ -7,7 +7,7 @@ import Navbar from "@/components/navbar/Navbar";
 const Payment = () => {
   return ( <>
   <Navbar/>
-  <div className="p-2 md:p-10 grid grid-cols-1 lg:grid-cols-2 gap-10 w-full justify-around ">
+  <div className="p-2 md:p-10 grid grid-cols-1 lg:grid-cols-2 gap-10 w-full justify-around  pb-20">
 
     <div className="p-4 mt-10  md:m-10 w-full ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

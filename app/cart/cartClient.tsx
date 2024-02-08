@@ -1,6 +1,18 @@
+"use client"
+import { useCart } from "@/hooks/use.cart";
 import Link from "next/link";
 
 const CartClient = () => {
+    const {carts,removeFromCart,totalPrice}=useCart()
+    if(!carts){
+       return <div className="h-screen flex items-center justify-center">
+            <div className="flex flex-col gap-2">
+            <h5 className="text-lg ">There are no carts you Added</h5>
+        <p className="text-md text-gray-500  dark:text-gray-400">please back to <Link href="/#courseslist">Courses</Link> and then added the course you want to buy!</p>
+            </div>
+        </div>
+    }
+    else{
   return ( 
 
 
@@ -19,62 +31,34 @@ const CartClient = () => {
                     Price
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    <span className="sr-only">Edit</span>
+                    <span className="sr-only">Action</span>
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            {carts&&carts.map((cart:any,index)=>{
+                return <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   Biology
+                  {cart.subject}
                 </th>
                
                 <td className="px-6 py-4">
-                   Chemistry
+                  {cart.category}
                 </td>
                 <td className="px-6 py-4">
-                    100Etb
+                    {cart.price}
                 </td>
                 <td className="px-6 py-4 text-right">
-                <button className="font-medium text-rose-600 dark:text-rose-500  hover:text-rose-400">Remove</button>
+                <button onClick={()=>removeFromCart(cart.id)} className="font-medium text-rose-600 dark:text-rose-500  hover:text-rose-400">Remove</button>
                 </td>
             </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Highschool
-                </th>
-               
-                <td className="px-6 py-4">
-                    Freshman
-                </td>
-                <td className="px-6 py-4">
-                    $1999
-                </td>
-                <td className="px-6 py-4 text-right">
-                <button className="font-medium text-rose-600 dark:text-rose-500  hover:text-rose-400">Remove</button>
-                </td>
-            </tr>
-            <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-              
-                <td className="px-6 py-4">
-                    Accessories
-                </td>
-                <td className="px-6 py-4">
-                    $99
-                </td>
-                <td className="px-6 py-4 text-right">
-                <button className="font-medium text-rose-600 dark:text-rose-500  hover:text-rose-400">Remove</button>
-                </td>
-            </tr>
+            })}
         </tbody>
         <tfoot>
             <tr className="font-semibold text-gray-900 dark:text-white">
                 <th scope="row" className="px-6 py-3 text-base">Total</th>
-                <td className="px-6 py-3">3</td>
-                <td className="px-6 py-3">21,000</td>
+                <td className="px-6 py-3">{carts?.length} courses</td>
+                <td className="px-6 py-3">{totalPrice}</td>
                 <td><Link className="
                 text-lg
                 no-underline
@@ -92,7 +76,7 @@ const CartClient = () => {
     </table>
 </div>
 
-   );
+   );}
 }
  
 export default CartClient;

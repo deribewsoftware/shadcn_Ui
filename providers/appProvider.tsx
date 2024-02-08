@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { ToggleProvider } from "./toggleProvider";
 import { ThemeProvider } from "./themeProvider";
+import CartProvider from "./cartProvider";
 
 interface AppProviderProps{
   children:ReactNode;
@@ -12,7 +13,9 @@ const AppProvider:React.FC<AppProviderProps> = ({children}) => {
     enableSystem
     disableTransitionOnChange
   ><ToggleProvider>
-    {children}
+   <CartProvider>
+   {children}
+   </CartProvider>
   </ToggleProvider> </ThemeProvider>);
 }
  

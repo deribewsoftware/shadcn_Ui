@@ -18,6 +18,8 @@ import { reviews } from "@/lib/reviews";
 import CourseContent from "./courseContent";
 import Navbar from "@/components/navbar/Navbar";
 import Header from "@/components/Header";
+import { courses } from "@/lib/courses";
+import { useCart } from "@/hooks/use.cart";
 
 
 interface ContentListProps{
@@ -78,12 +80,17 @@ const aboutCourse=["Welcome to this practical course on doing business in Ethiop
   }, []);
   const {id}=useParams()
 const router=useRouter()
+const {addToCart}=useCart();
 
-const addToCart=()=>{
+const course=courses.filter((course) => course.id==id)
+
+const onAddToCart=()=>{
+  addToCart(course[0])
   router.push('/cart')
 }
 
 const onPayment=()=>{
+  addToCart(course[0])
   router.push('/payment')
 }
 
@@ -219,7 +226,7 @@ image={review.image}
         bg-white dark:bg-gray-800">
         <div className="p-2 flex justify-end gap-6">
           <button 
-          onClick={addToCart}
+          onClick={onAddToCart}
           className="
           text-xl
           

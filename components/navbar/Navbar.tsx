@@ -1,6 +1,6 @@
 /* eslint-disable react/no-children-prop */
 "use client"
-
+import { FaCartArrowDown } from "react-icons/fa";
 import { useTheme } from "next-themes";
 import Logo from "../../public/alpha.png";
 import Image from "next/image";
@@ -12,6 +12,7 @@ import Modal from "../modal/modal";
 import Input from "../input/input";
 import Dropdown from "../dropdown/dropdown";
 import Link from "next/link";
+import { useCart } from "@/hooks/use.cart";
 
 const Navbar = () => {
   const [isScroll,setScroll] =useState(false);
@@ -52,6 +53,10 @@ const category=[
     url: "category/Development"
   }
 ]
+
+const {carts}=useCart()
+
+
   return ( <div className={`overflow-hidden w-full bg-slate-100 dark:bg-gray-900 px-2 z-50 h-12 items-center   flex justify-between flex-wrap overflow-x-hidden ${isScroll? "shadow-md shadow-slate-300 dark:shadow-black fixed  ":""} duration-300 z-50`}>
     <div className="flex gap-2"><Image src={Logo} alt="logo" className="w-10 h-10 rounded-full" height={30} width={30}/>
      <h1 className="font-semibold text-xl md:text-2xl py-2 overflow-hidden">
@@ -68,7 +73,11 @@ const category=[
             
         </div>
       <Link href="/#courseslist" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Courses</Link>
-      <Link href="/cart" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Cart</Link>
+
+
+
+
+      <Link href="/cart" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Cart{carts&&`(${carts.length})`}</Link>
       <div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">  <Modal
       label="Signup"
       title="Sign Up"
