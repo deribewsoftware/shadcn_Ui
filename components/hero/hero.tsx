@@ -36,7 +36,7 @@ const Hero = () => {
    
   })}
  
-</AvatarGroup> <h1 className="p-2">+20k students trust us.</h1></div>
+</AvatarGroup> <h1 className="p-2 text-lg text-gray-500 dark:text-gray-400">+20k students trust us.</h1></div>
     </div>
 
     

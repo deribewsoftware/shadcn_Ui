@@ -11,6 +11,7 @@ import { LuSunMedium } from "react-icons/lu";
 import Modal from "../modal/modal";
 import Input from "../input/input";
 import Dropdown from "../dropdown/dropdown";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isScroll,setScroll] =useState(false);
@@ -62,13 +63,13 @@ const category=[
      <div className="flex md:gap-20  justify-center">
     <div className=" hidden md:block">
       <div className="flex gap-4">
-        <div className="p-1 hover:bg-slate-200 dark:hover:bg-gray-700">
+        <div className="pb-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
           <Dropdown  label="Category" contents={category} />
             
         </div>
-      <div className="p-1 hover:bg-slate-200 dark:hover:bg-gray-700">Courses</div>
-      <div className="p-1 hover:bg-slate-200 dark:hover:bg-gray-700">Cart</div>
-      <div className="hover:bg-slate-200 dark:hover:bg-gray-700">  <Modal
+      <Link href="/#courseslist" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Courses</Link>
+      <Link href="/cart" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Cart</Link>
+      <div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">  <Modal
       label="Signup"
       title="Sign Up"
       >
@@ -80,7 +81,7 @@ const category=[
           <Input type="password" label="Confirm Password"/> */}
         </div>
       </Modal></div>
-      <div className="hover:bg-slate-200 dark:hover:bg-gray-700">
+      <div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
         <Modal
       label="Login"
       title="Sign In"

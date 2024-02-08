@@ -37,7 +37,7 @@ const onDropdown=()=>{
     return (
       <DropdownMenu >
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="border-none outline-none flex gap-1"><p>{label}</p> <p><HiChevronDown size={20}/></p></Button>
+          <Button variant="outline" className="border-none outline-none flex gap-1"><p className="font-medium">{label}</p> <p><HiChevronDown size={20}/></p></Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 bg-opacity-95 bg-slate-100 dark:bg-gray-800 rounded-[5px] rounded-t-0 dark:border-gray-600">
           <DropdownMenuLabel>{label}</DropdownMenuLabel>

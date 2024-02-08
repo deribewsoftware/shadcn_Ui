@@ -20,8 +20,7 @@ interface CardProps{
 
 
 const Card:React.FC<CardProps> = ({id,subject,category,cover,price,rating}) => {
-  return ( <Container
-  childern={<div className="w-full md:w-72 h-auto  ">
+  return ( <div className="w-full md:w-72 h-auto  bg-white dark:bg-gray-800 ">
   <div className="w-full ">
     <Image src={cover} alt={subject} className="h-[200px] w-full rounded-t-[5px]"/>
   </div>
@@ -42,8 +41,8 @@ const Card:React.FC<CardProps> = ({id,subject,category,cover,price,rating}) => {
     <p className="text-lg font-medium ">Get started</p>
   </Link>
   </div>
-</div>}
-  /> );
+</div>
+ );
 }
  
 export default Card;
