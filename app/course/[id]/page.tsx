@@ -17,6 +17,7 @@ import Reviews from "./reviews/Reviews";
 import { reviews } from "@/lib/reviews";
 import CourseContent from "./courseContent";
 import Navbar from "@/components/navbar/Navbar";
+import Header from "@/components/Header";
 
 
 interface ContentListProps{
@@ -73,7 +74,14 @@ const aboutCourse=["Welcome to this practical course on doing business in Ethiop
     };
   }, []);
   const {id}=useParams()
-  return ( <div>
+  return ( 
+  <><Header
+  title='Alpha Academy || Biology Course'
+  description={aboutCourse[0]+aboutCourse[1]}
+  keywords='Programming, High School Courses, Freshman Courses, Entrance Exams, Exit Exams, Online Education, Lifelong Learning'
+/>
+<div>
+
     <Navbar/>
     <div className="md:flex justify-center md:min-h-screen md:p-10 relative ">
     <div className="md:flex justify-center items-center   min-h-screen  w-full md:w-7/12  ">
@@ -230,8 +238,8 @@ image={review.image}
       </div>
     </div>
   </div> 
-  <Footer/>
-  </div>);
+  
+  </div></>);
 }
  
 export default Course;

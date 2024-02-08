@@ -6,9 +6,18 @@ import Logo from "../public/liya.jpg"
 
 import { courses } from '@/lib/courses'
 
+import Header from '@/components/Header'
+
 
 export default function Home() {
   return (
+    <>
+    <Header
+    title='Alpha Online Academy'
+    description='Empowering Minds, Shaping Futures: Unlock your potential with Alpha, the pinnacle of online education. As the premier academy, we offer a transformative learning experience that goes beyond traditional boundaries. Our meticulously crafted courses cover a spectrum of subjects, including programming, high school courses, freshman essentials, entrance exams preparation, and expert guidance for exit exams. At Alpha, we believe in nurturing excellence and fostering a community of lifelong learners. Join us on a journey of academic excellence and personal growth.'
+    keywords='Programming, High School Courses, Freshman Courses, Entrance Exams, Exit Exams, Online Education, Lifelong Learning'
+/>
+
    <div className="flex flex-col overflow-hidden">
     <Navbar/>
     <Hero/>
@@ -67,6 +76,6 @@ export default function Home() {
 
    </main>
    
-   </div>
+   </div></>
   )
 }
