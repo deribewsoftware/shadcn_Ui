@@ -74,6 +74,7 @@ setCarts([...carts,data]);
     if(!carts){
       return "There are no courses added to the cart";
     }
+    
     const removedCart = carts.find((c) => c.id === courseId);
     if (removedCart) {
       const newCarts = carts.filter((c) => c.id !== courseId);

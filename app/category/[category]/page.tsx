@@ -51,7 +51,7 @@ const Category = ({params}:{params:IPrams}) => {
 </div>
 
 </div>
-  </div> <Footer/></> );
+  </div> </> );
 }
  
 export default Category;

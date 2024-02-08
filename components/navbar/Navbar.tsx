@@ -13,6 +13,7 @@ import Input from "../input/input";
 import Dropdown from "../dropdown/dropdown";
 import Link from "next/link";
 import { useCart } from "@/hooks/use.cart";
+import MobileMenu from "./mobileMenu";
 
 const Navbar = () => {
   const [isScroll,setScroll] =useState(false);
@@ -101,34 +102,25 @@ const {carts}=useCart()
         </div>
       </Modal>
       </div>
-    </div></div>
 
-    <div className="md:hidden">
-    <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    width="24"
-    height="24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="3" y1="12" x2="21" y2="12"></line>
-    <line x1="3" y1="6" x2="21" y2="6"></line>
-    <line x1="3" y1="18" x2="21" y2="18"></line>
-  </svg>
-    </div>
-
-<button className="dark:hidden px-4" onClick={()=>setTheme('dark')}>
+      <div className="hidden md:block p-2">
+    <button className="dark:hidden px-4" onClick={()=>setTheme('dark')}>
 
 
-       <GoMoon size={24}/>
+<GoMoon size={24}/>
 </button>
 <button className="px-4 hidden dark:block" onClick={() => setTheme("light")}>
-  <LuSunMedium size={24}/>
-  </button>
+<LuSunMedium size={24}/>
+</button>
+    </div>
+    </div></div>
+
+    
+    <div className="md:hidden">
+   <MobileMenu/>
+    </div>
+   
+
   </div> </div>);
 }
  
