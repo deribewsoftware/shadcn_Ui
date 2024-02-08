@@ -1,7 +1,7 @@
 "use client"
 import Container from "@/components/container/container";
 import Footer from "@/components/footer/footer";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import RatingCourse from "./rating/rating";
@@ -29,13 +29,16 @@ title:string;
 
 const ContentList:React.FC<ContentListProps>=({icon:Icon,title})=>{
   return(
-    <div className="flex gap-4 px-2 font-sans font-light text-sm border-b-2  mx-2 py-2">
+    <div className="flex gap-4 px-2   text-sm  border-y  mx-2 py-2">
       <Icon size={24}/>
       <p>{title}</p>
     </div>
   )
 }
 const Course = () => {
+
+
+
   const requirements = [
     "Access to a computer, laptop, or mobile device with an internet connection",
     "Basic computer literacy and proficiency in using online tools",
@@ -74,6 +77,16 @@ const aboutCourse=["Welcome to this practical course on doing business in Ethiop
     };
   }, []);
   const {id}=useParams()
+const router=useRouter()
+
+const addToCart=()=>{
+  router.push('/cart')
+}
+
+const onPayment=()=>{
+  router.push('/payment')
+}
+
   return ( 
   <><Header
   title='Alpha Academy || Biology Course'
@@ -196,11 +209,53 @@ image={review.image}
 
     <div className="flex justify-center items-center w-full md:w-3/12 p-2 md:px-4 overflow-y-auto ">
 
-      <div className={`  overflow-y-auto overflow-x-hidden  ${isScroll? "":"top-10 md:fixed md:w-3/12 md:px-8"} duration-500`}>
-      <div className="flex flex-col overflow-y-auto overflow-x-hidden   gap-10 ">
-      <h4>Course Content</h4>
-     <Container
-     childern={ <div className="flex flex-col gap-4">
+      <div className={`  md:mt-20 overflow-y-auto overflow-x-hidden  ${isScroll? "":"top-10 md:fixed md:w-3/12 md:px-8"} duration-500`}>
+      <div className="
+      shadow-lg
+      rounded-[5px]
+      flex
+       flex-col overflow-y-auto 
+      overflow-x-hidden  
+        bg-white dark:bg-gray-800">
+        <div className="p-2 flex justify-end gap-6">
+          <button 
+          onClick={addToCart}
+          className="
+          text-xl
+          
+          dark:bg-gray-700 
+          border
+           bg-gray-100 
+          border-gray-200 
+          hover:border-blue-600 
+          hover:text-blue-600 
+          dark:border-gray-600
+           px-3 py-2 rounded-[5px] 
+          hover:dark:border-green-400 
+          hover:dark:text-green-400 transition
+           duration-300"
+           >Add to cart</button>
+          <button
+
+          onClick={onPayment}
+           className="
+           text-xl
+          
+           dark:bg-gray-700 
+           border
+            bg-gray-100 
+           border-gray-200 
+           hover:border-blue-600 
+           hover:text-blue-600 
+           dark:border-gray-600
+            px-3 py-2 rounded-[5px] 
+           hover:dark:border-green-400 
+           hover:dark:text-green-400 transition
+            duration-300"
+          >Buy</button>
+        </div>
+      <h5 className="px-2 text-lg text-gray-500 dark:text-gray-400">Course Content</h5>
+     <div className="flex flex-col  ">
 
       <ContentList
       title="Level:Beginner"
@@ -229,8 +284,7 @@ image={review.image}
       title="Communicate and Asking Questions and get Answers from Your Friends"
       icon={IoPeopleOutline}
       />
-     </div> }
-     />
+     </div> 
       
      
      
