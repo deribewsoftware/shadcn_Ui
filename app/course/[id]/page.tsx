@@ -1,16 +1,12 @@
 "use client"
 import Container from "@/components/container/container";
-import Footer from "@/components/footer/footer";
+
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import RatingCourse from "./rating/rating";
 import Heading from "@/components/Heading/Heading";
-import { BsBarChart } from "react-icons/bs";
-import { SiLibreoffice } from "react-icons/si";
-import { IoPeopleOutline } from "react-icons/io5";
-import { IoIosPhonePortrait } from "react-icons/io";
-import { GoQuestion } from "react-icons/go";
+
 import { IconType } from "react-icons";
 import { Rating } from "@mui/material";
 import Reviews from "./reviews/Reviews";
@@ -20,23 +16,10 @@ import Navbar from "@/components/navbar/Navbar";
 import Header from "@/components/Header";
 import { courses } from "@/lib/courses";
 import { useCart } from "@/hooks/use.cart";
-
-
-interface ContentListProps{
-icon:IconType;
-title:string;
-} 
+import CourseDescribeList from "../coursedescribeList";
 
 
 
-const ContentList:React.FC<ContentListProps>=({icon:Icon,title})=>{
-  return(
-    <div className="flex gap-4 px-2   text-sm  border-y  mx-2 py-2">
-      <Icon size={24}/>
-      <p>{title}</p>
-    </div>
-  )
-}
 const Course = () => {
 
 
@@ -84,15 +67,7 @@ const {addToCart}=useCart();
 
 const course=courses.filter((course) => course.id==id)
 
-const onAddToCart=()=>{
-  addToCart(course[0])
-  router.push('/cart')
-}
 
-const onPayment=()=>{
-  addToCart(course[0])
-  router.push('/payment')
-}
 
   return ( 
   <><Header
@@ -103,11 +78,11 @@ const onPayment=()=>{
 <div>
 
     <Navbar/>
-    <div className="md:flex justify-center md:min-h-screen md:p-10 relative ">
-    <div className="md:flex justify-center items-center   min-h-screen  w-full md:w-7/12  ">
-    <div className="flex flex-col gap-10 p-2 md:p-10 ">
-      <h1 className="text-3xl font-bold md:mt-4">
-        Course Title {id}
+    <div className="lg:flex justify-center lg:min-h-screen lg:p-10 relative ">
+    <div className="lg:flex justify-center items-center   min-h-screen  w-full lg:w-7/12  ">
+    <div className="flex flex-col gap-10 p-2 lg:p-10 ">
+      <h1 className="text-3xl font-bold lg:mt-4">
+        {course[0].subject} Course
       </h1>
 
 
@@ -137,7 +112,13 @@ const onPayment=()=>{
 </div>}/>
 
 
-
+<Container
+childern={
+  <CourseDescribeList
+course={course}
+/>
+}
+/>
 
 
 <Container childern={ <div className="p-3 flex flex-col gap-4">
@@ -214,88 +195,13 @@ image={review.image}
 
 
 
-    <div className="flex justify-center items-center w-full md:w-3/12 p-2 md:px-4 overflow-y-auto ">
+    <div className="flex justify-center items-center w-full lg:w-3/12 p-2 lg:px-4 overflow-y-auto ">
 
-      <div className={`  md:mt-20 overflow-y-auto overflow-x-hidden  ${isScroll? "":"top-10 md:fixed md:w-3/12 md:px-8"} duration-500`}>
-      <div className="
-      shadow-lg
-      rounded-[5px]
-      flex
-       flex-col overflow-y-auto 
-      overflow-x-hidden  
-        bg-white dark:bg-gray-800">
-        <div className="p-2 flex justify-end gap-6">
-          <button 
-          onClick={onAddToCart}
-          className="
-          text-xl
-          
-          dark:bg-gray-700 
-          border
-           bg-gray-100 
-          border-gray-200 
-          hover:border-blue-600 
-          hover:text-blue-600 
-          dark:border-gray-600
-           px-3 py-2 rounded-[5px] 
-          hover:dark:border-green-400 
-          hover:dark:text-green-400 transition
-           duration-300"
-           >Add to cart</button>
-          <button
-
-          onClick={onPayment}
-           className="
-           text-xl
-          
-           dark:bg-gray-700 
-           border
-            bg-gray-100 
-           border-gray-200 
-           hover:border-blue-600 
-           hover:text-blue-600 
-           dark:border-gray-600
-            px-3 py-2 rounded-[5px] 
-           hover:dark:border-green-400 
-           hover:dark:text-green-400 transition
-            duration-300"
-          >Buy</button>
-        </div>
-      <h5 className="px-2 text-lg text-gray-500 dark:text-gray-400">Course Content</h5>
-     <div className="flex flex-col  ">
-
-      <ContentList
-      title="Level:Beginner"
-      icon={BsBarChart}
-      />
-
-<ContentList
-      title="Resourses:2"
-      icon={SiLibreoffice}
-      />
-
-<ContentList
-      title="Lessons:20"
-      icon={BsBarChart}
-      />
-
-<ContentList
-      title="Questions and Exams:3000"
-      icon={GoQuestion}
-      />
-<ContentList
-      title="Accessed by Laptop,desktop,Mobile,Tablet and etc..."
-      icon={IoIosPhonePortrait}
-      />
-<ContentList
-      title="Communicate and Asking Questions and get Answers from Your Friends"
-      icon={IoPeopleOutline}
-      />
-     </div> 
+      <div className={`hidden lg:block  lg:mt-20 overflow-y-auto overflow-x-hidden  ${isScroll? "":"top-10 lg:fixed lg:w-3/12 lg:px-8"} duration-500`}>
       
-     
-     
-      </div>
+<CourseDescribeList
+course={course}
+/>
       </div>
     </div>
   </div> 

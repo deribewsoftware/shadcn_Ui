@@ -156,13 +156,13 @@ const onsubmit = () => {
 
   return ( <div className="flex flex-col gap-20 font-serif text-[18px]">
     <Navbar/>
-    <div className="md:flex w-full justify-center gap-20 p-2">
-   <div className="flex flex-col w-full md:w-7/12"> 
+    <div className="lg:flex w-full justify-center gap-20 p-2 md:px-6 lg:px-0">
+   <div className="flex flex-col w-full lg:w-7/12"> 
    
    
 
    <Container
-   childern={lesson&&<div className="flex flex-col gap-4 p-2 md:p-6">
+   childern={lesson&&<div className="flex flex-col gap-4 p-2 md:p-6 md:px-4 lg:px-4">
     <div className="flex justify-between p-2 flex-wrap">
     <p className="text-sm text-slate-400 ">Biology</p>
       <p className="text-sm text-slate-400  ">Chapter:One <span>Bacteria</span></p>
@@ -180,7 +180,7 @@ const onsubmit = () => {
    rounded-[5px]">Next</button>
      
     </div>
-   <div className="p-2 flex flex-col justify-between md:flex-row dark:text-300"> 
+   <div className="p-2 flex flex-col justify-between lg:flex-row dark:text-300"> 
    <Heading title={lesson[0].title}/>
    <p className=" text-slate-400  ">Lesson:{lesson[0].lessonId}</p>
       </div>
@@ -191,7 +191,7 @@ const onsubmit = () => {
     </div>
       
        <div className="bg-sky-200 flex flex-col gap-2 p-3 rounded-[5px] border-l-[3px] border-sky-600 dark:border-gray-900 dark:bg-gray-700">
-        <h1 className="text-sky-600 dark:text-white font-medium text-md">Remark</h1>
+        <h1 className="text-sky-600 dark:text-white font-medium text-lg">Remark</h1>
        <p>{lesson[0].remark}</p>
        </div>
        
@@ -206,19 +206,19 @@ const onsubmit = () => {
        </div>
       
 {/* questions */}
-<div className="md:p-4">
-      <div className="flex flex-col md:flex-row justify-between md:px-10 py-2">
+<div className="lg:p-4">
+      <div className="flex flex-col lg:flex-row justify-between md:px-10 py-2">
       <h1 className="text-lg font-medium">{lesson[0].title} Quizzes</h1>
-      <h2>score:{score}</h2>
+      <h2 className="text-sm">score:{score}</h2>
       <p className="text-slate-600">{indexQuestion+1} out of {questions.length}</p>
       </div>
       <hr className="h-[2px] w-full bg-slate-200"/>
       <div className="mt-4">
         <div className="flex gap-1 py-2 w-full">
          
-            <div className="py-1 px-3 text-lg font-semibold  bg-teal-200 dark:bg-gray-700 rounded-full ">{question.id}</div>
+            <div className="text-center w-6 h-6 text-lg font-semibold  bg-teal-200 dark:bg-gray-700 rounded-full ">{question.id}</div>
        
-          <h2>{question.question}</h2>
+          <h2 className="text-lg">{question.question}</h2>
         </div>
         <ul>
           {question.choices.map((option, index) => (
@@ -233,8 +233,8 @@ const onsubmit = () => {
         disabled&&<Accordion type="single" collapsible className="border-none" >
 
  <AccordionItem  value={`${question.id}`}className="border-none">
-  <AccordionTrigger ><div className="text-md text-captalize">
-   <h5>Explanation</h5>
+  <AccordionTrigger ><div className="text-lg text-captalize">
+   <h5 className="text-lg">Explanation</h5>
    
     </div></AccordionTrigger>
   <AccordionContent className="bg-teal-100 dark:bg-gray-700  p-2">
@@ -262,7 +262,7 @@ const onsubmit = () => {
    </div>}
    />
    </div>
-   <div className="w-full mt-6 md:m-0 md:w-3/12 flex h-full justify-center md:p-4">
+   <div className="w-full mt-6 lg:m-0 lg:w-3/12 flex h-full justify-center lg:p-4">
     <Container
     childern={<CourseContent courseId={params.id}/>}
     />
@@ -271,7 +271,7 @@ const onsubmit = () => {
   <div className="flex flex-col p-3 gap-4">
     <Heading title="Related Courses"/>
 
-  <div className='flex justify-center flex-wrap gap-8 md:px-10'>
+  <div className='flex justify-center flex-wrap gap-8 lg:px-10'>
 
         {courses.map((course,index)=>{
           return <Card
@@ -289,7 +289,7 @@ const onsubmit = () => {
       </div>
 
       </div>
-  <Footer/>
+ 
   </div> );
 }
  
