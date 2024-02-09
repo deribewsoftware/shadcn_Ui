@@ -22,7 +22,7 @@ interface CardProps{
 const Card:React.FC<CardProps> = ({id,subject,category,cover,price,rating}) => {
   return ( <div className="w-full md:w-72 h-auto  bg-white dark:bg-gray-800 ">
   <div className="w-full ">
-    <Image src={cover} alt={subject} className="h-[200px] w-full rounded-t-[5px]"/>
+    <Image src={cover} alt={subject} height={200} width={200} className=" w-full rounded-t-[5px]"/>
   </div>
   <div className="flex flex-col p-3 gap-4">
     <div className="flex justify-between px-2">

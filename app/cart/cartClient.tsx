@@ -59,18 +59,8 @@ const CartClient = () => {
                 <th scope="row" className="px-6 py-3 text-base">Total</th>
                 <td className="px-6 py-3">{carts?.length} courses</td>
                 <td className="px-6 py-3">{totalPrice}</td>
-                <td><Link className="
-                text-lg
-                no-underline
-                px-2 py-1 border 
-                dark:border-gray-800 
-                rounded-[5px]
-                hover:dark:border-rose-400
-                hover:text-rose-400 
-                hover:dark:text-green
-                border-gray-200
-                hover:dark:border-green-400"
-                  href="/payment">Buy</Link></td>
+                <td>
+                <Link href="/payment" className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900">Buy now</Link></td>
             </tr>
         </tfoot>
     </table>

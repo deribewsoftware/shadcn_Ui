@@ -1,13 +1,17 @@
 import Navbar from "@/components/navbar/Navbar";
+import MyCourseClient from "./mycourse";
+import UserProfile from "@/components/userprofile/userProfile";
 
 const MyCourses = () => {
   return ( <>
   <Navbar/>
-  <div className="min-h-screen flex justify-center items-center w-full px-2 md:px-10">
+  <div className="min-h-screen flex flex-col justify-center ">
     
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-  <div className="bg-rose-400">profile</div>
-  <div className="bg-green-400">MyCourses</div>
+<div className="flex gap-10 flex-wrap  justify-center">
+  <div className="">
+    <UserProfile/>
+  </div>
+  <div className="overflow-x-auto p-2"><MyCourseClient/></div>
 </div>
     </div>
   </> );
