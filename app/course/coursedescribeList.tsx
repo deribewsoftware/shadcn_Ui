@@ -16,7 +16,7 @@ interface ContentListProps{
   
 
   interface CourseDescriptionListprops{
-    course:CourseType[];
+    course:any[];
   }
 
 const ContentList:React.FC<ContentListProps>=({icon:Icon,title})=>{
