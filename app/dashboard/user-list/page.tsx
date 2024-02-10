@@ -1,4 +1,6 @@
-import UserListClient from "./userListClient";
+import { UserListClient } from "./userListClient";
+
+
 
 const UserList = () => {
   return (<div className="">

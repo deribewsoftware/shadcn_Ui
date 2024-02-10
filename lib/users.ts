@@ -34,7 +34,7 @@ export const usersData = [
   },
   {
     id: "2",
-    avatar: "https://example.com/avatar2.jpg",
+    avatar: "https://avatars.githubusercontent.com/u/739994?v=4",
     name: "Alice Johnson",
     phone: "+1234567890",
     email: "alice@example.com",
@@ -67,7 +67,7 @@ export const usersData = [
   },
   {
     id: "3",
-    avatar: "https://example.com/avatar3.jpg",
+    avatar: "https://avatars.githubusercontent.com/u/739974?v=4",
     name: "Bob Smith",
     phone: "+9876543210",
     email: "bob@example.com",
@@ -100,7 +100,7 @@ export const usersData = [
   },
   {
     id: "4",
-    avatar: "https://example.com/avatar4.jpg",
+    avatar: "https://avatars.githubusercontent.com/u/739985?v=4",
     name: "Charlie Brown",
     phone: "+1122334455",
     email: "charlie@example.com",
@@ -133,7 +133,7 @@ export const usersData = [
   },
   {
     id: "5",
-    avatar: "https://example.com/avatar5.jpg",
+    avatar: "https://avatars.githubusercontent.com/u/739986?v=4",
     name: "Diana Miller",
     phone: "+9988776655",
     email: "diana@example.com",
@@ -166,7 +166,7 @@ export const usersData = [
   },
   {
     id: "6",
-    avatar: "https://example.com/avatar6.jpg",
+    avatar: "https://avatars.githubusercontent.com/u/739955?v=4",
     name: "Eva Wilson",
     phone: "+6655443322",
     email: "eva@example.com",
@@ -199,7 +199,7 @@ export const usersData = [
   },
   {
     id: "7",
-    avatar: "https://example.com/avatar7.jpg",
+    avatar: "https://avatars.githubusercontent.com/u/739934?v=4",
     name: "Frank Johnson",
     phone: "+1122334455",
     email: "frank@example.com",
@@ -232,7 +232,7 @@ export const usersData = [
   },
   {
     id: "8",
-    avatar: "https://example.com/avatar8.jpg",
+    avatar: "https://avatars.githubusercontent.com/u/739989?v=4",
     name: "Grace Miller",
     phone: "+9988776655",
     email: "grace@example.com",
@@ -265,7 +265,7 @@ export const usersData = [
   },
   {
     id: "9",
-    avatar: "https://example.com/avatar9.jpg",
+    avatar: "https://avatars.githubusercontent.com/u/739977?v=4",
     name: "Henry Brown",
     phone: "+6655443322",
     email: "henry@example.com",
@@ -298,7 +298,7 @@ export const usersData = [
   },
   {
     id: "10",
-    avatar: "https://example.com/avatar10.jpg",
+    avatar: "https://avatars.githubusercontent.com/u/739952?v=4",
     name: "Ivy Wilson",
     phone: "+1122334455",
     email: "ivy@example.com",
