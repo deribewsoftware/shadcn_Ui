@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "https://ethio-exams-api.vercel.app/api/v1/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ]
+}
