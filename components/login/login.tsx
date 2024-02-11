@@ -21,7 +21,7 @@ const router=useRouter();
 
    
     setLoading(true)
-    axios.post("https://ethio-exams-api.vercel.app/api/v1/login",data).then((response) => {
+    axios.post("https://ethio-exams-backend-api.onrender.com/api/v1/login",data).then((response) => {
       toast.success("Successfully logged in")
       console.log("data",response)
     }).catch((error) => {
