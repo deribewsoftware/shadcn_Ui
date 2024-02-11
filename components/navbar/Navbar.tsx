@@ -76,7 +76,7 @@ const {carts}=useCart()
             
         </div>
       <Link href="/#courseslist" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Courses</Link>
-
+z
 
 
 

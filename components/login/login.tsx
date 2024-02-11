@@ -1,11 +1,11 @@
 "use client"
 
-import { FieldValues, RegisterOptions, SubmitHandler, UseFormRegisterReturn, useForm } from "react-hook-form";
+import { FieldValues,SubmitHandler, useForm } from "react-hook-form";
 import Input from "../input/input";
 import { useState } from "react";
 import axios from "axios"
 import { useRouter } from "next/navigation";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 const Login = () => {
 const router=useRouter();
   const [Loading,setLoading]=useState(false);
@@ -23,13 +23,13 @@ const router=useRouter();
     setLoading(true)
     axios.post("https://ethio-exams-backend-api.onrender.com/api/v1/login",data).then((response) => {
       toast.success("Successfully logged in")
-      console.log("data",response)
+      router.push("#")
+      router.refresh()
     }).catch((error) => {
       toast.error("error occured in login")
     }).finally(()=>{
       setLoading(false)
-      router.push("/")
-      router.refresh()
+      
     });
     
         
