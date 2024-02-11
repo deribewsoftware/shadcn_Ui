@@ -1,6 +1,6 @@
 /* eslint-disable react/no-children-prop */
 "use client"
-import { FaCartArrowDown } from "react-icons/fa";
+
 import { useTheme } from "next-themes";
 import Logo from "../../public/alpha.png";
 import Image from "next/image";
@@ -9,11 +9,13 @@ import { Moon, Sun } from "lucide-react"
 import { GoMoon } from "react-icons/go";
 import { LuSunMedium } from "react-icons/lu";
 import Modal from "../modal/modal";
-import Input from "../input/input";
+
 import Dropdown from "../dropdown/dropdown";
 import Link from "next/link";
 import { useCart } from "@/hooks/use.cart";
 import MobileMenu from "./mobileMenu";
+import Signup from "../signup/signup";
+import Login from "../login/login";
 
 const Navbar = () => {
   const [isScroll,setScroll] =useState(false);
@@ -84,11 +86,7 @@ const {carts}=useCart()
       title="Sign Up"
       >
         <div className="p-3 flex flex-col gap-6">
-          {/* <Input type="text" label="Username"/>
-          <Input type="phone" label="Phone"/>
-          <Input type="password" label="Password"/>
-          
-          <Input type="password" label="Confirm Password"/> */}
+        <Signup/>
         </div>
       </Modal></div>
       <div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
@@ -97,8 +95,7 @@ const {carts}=useCart()
       title="Sign In"
       >
         <div className="p-3 flex flex-col gap-6">
-          {/* <Input type="text" label="Username"/>
-          <Input type="password" label="Password"/> */}
+         <Login/>
         </div>
       </Modal>
       </div>

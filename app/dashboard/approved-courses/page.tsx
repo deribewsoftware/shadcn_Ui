@@ -1,6 +1,8 @@
+import { ApprovedCoursesClient } from "./approvedCoursesClient";
+
 const ApprovedCourses = () => {
   return ( <div className="">
-    <h5>Approved Courses</h5>
+   <ApprovedCoursesClient/>
   </div> );
 }
  
