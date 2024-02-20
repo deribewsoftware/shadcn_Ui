@@ -5,11 +5,8 @@ import { useTheme } from "next-themes";
 import Logo from "../../public/alpha.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Moon, Sun } from "lucide-react"
 import { GoMoon } from "react-icons/go";
 import { LuSunMedium } from "react-icons/lu";
-import Modal from "../modal/modal";
-
 import Dropdown from "../dropdown/dropdown";
 import Link from "next/link";
 import { useCart } from "@/hooks/use.cart";
@@ -17,7 +14,12 @@ import MobileMenu from "./mobileMenu";
 import Signup from "../signup/signup";
 import Login from "../login/login";
 
-const NavbarClient = () => {
+import Profile from "../Profile";
+
+interface NavbarClientProps{
+  user:any;
+}
+const NavbarClient:React.FC<NavbarClientProps> = ({user}) => {
   const [isScroll,setScroll] =useState(false);
   useEffect(() => {
     const handleScroll = () => {
@@ -76,19 +78,24 @@ const {carts}=useCart()
             
         </div>
       <Link href="/#courseslist" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Courses</Link>
-z
-
-
 
       <Link href="/cart" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Cart{carts&&`(${carts.length})`}</Link>
-      <div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium"> 
-      <Signup/>
-       </div>
-      <div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
-        <Login/>
-      </div>
 
-      <div className="hidden md:block p-2">
+      
+      {!user&&<div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium"> 
+      <Signup/>
+       </div>}
+
+      {!user&&<div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
+        <Login/>
+      </div>}
+      {user&&<div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
+        <Profile user={user}/>
+      </div>}
+
+      
+    </div></div>
+    <div className="hidden md:block p-2">
     <button className="dark:hidden px-4" onClick={()=>setTheme('dark')}>
 
 
@@ -98,7 +105,6 @@ z
 <LuSunMedium size={24}/>
 </button>
     </div>
-    </div></div>
 
     
     <div className="md:hidden">

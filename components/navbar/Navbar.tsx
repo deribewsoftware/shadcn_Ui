@@ -5,7 +5,7 @@ import NavbarClient from "./NavbarClient";
 const Navbar =async () => {
   const currentUser = await getCurrentUser();
   console.log("currentUser:-", currentUser);
-  return (<NavbarClient/> );
+  return (<NavbarClient user={currentUser}/> );
 }
  
 export default Navbar;
