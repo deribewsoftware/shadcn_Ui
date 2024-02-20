@@ -11,21 +11,23 @@ datasource db {
 }
 
 model Account {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  userId             String @db.ObjectId
-  providerType       String
-  providerId         String
+  id                 String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId             String  @db.ObjectId
+  type               String
+  provider           String
   providerAccountId  String
-  refreshToken       String? @db.String
-  accessToken        String? @db.String
-  accessTokenExpires DateTime?
-  createdAt          DateTime  @default(now())
-  updatedAt          DateTime  @updatedAt
-  user               User      @relation(fields: [userId], references: [id])
+  refresh_token      String?  @db.String
+  access_token       String?  @db.String
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.String
+  session_state      String?
 
-  @@unique([providerId, providerAccountId])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
 }
-
 model User {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
   name          String?

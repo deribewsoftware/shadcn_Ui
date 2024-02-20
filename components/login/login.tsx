@@ -3,7 +3,7 @@
 import { FieldValues,SubmitHandler, useForm } from "react-hook-form";
 import Input from "../input/input";
 import { useState } from "react";
-import axios from "axios"
+import {signIn} from 'next-auth/react'
 import { useRouter } from "next/navigation";
 import toast from 'react-hot-toast';
 import Modal from "../modal/modal";
@@ -22,20 +22,26 @@ const [isOpen,setOpen]=useState(false);
   const onSubmit:SubmitHandler<FieldValues>=(data) => {
 
    
-    setLoading(true)
-    axios.post("api/auth/register",data).then((response) => {
-      toast.success("Successfully logged in")
-      setOpen(!isOpen)
-      router.push("#")
-      router.refresh()
-      
-    }).catch((error) => {
-      toast.error("error occured in login")
-    }).finally(()=>{
-      setLoading(false)
-      
-    });
+    setLoading(true);
     
+    signIn('credentials',{
+     email: data.email,
+     password: data.password,
+     redirect:false,
+    }).then((callback)=>{
+      if (callback?.ok){
+        router.push('#')
+        router.refresh()
+        setOpen(!isOpen)
+        toast.success("account logged in successfully")
+        
+      }
+      if (callback?.error){
+        toast.error(callback.error)
+      }
+    }).catch((error)=>toast.error('something went wrong')).finally(() => {
+            setLoading(false)
+    })  
         
     
   }
@@ -68,9 +74,13 @@ const [isOpen,setOpen]=useState(false);
 <div className="flex justify-end w-full">
   <button className="bg-white hover:border-rose-600  border border-gray-200 dark:border-gray-700 hover:dark:border-green-400 dark:bg-gray-700 rounded-[5px] hover:dark:bg-gray-800 transition duration-300 px-2 py-1 text-center " onClick={handleSubmit(onSubmit)}>{Loading? "Loading...":"Submit"}</button>
 </div>
+
+<button className="w-full mx-2 px-2 py-1 border rounded-lg border-gray-700" onClick={()=>{signIn('google')}}>Signin With Google</button>
 </div> 
+
   </Modal>);
 }
  
+
 export default Login;
 
