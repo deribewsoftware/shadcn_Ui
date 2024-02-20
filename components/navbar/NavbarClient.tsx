@@ -62,17 +62,17 @@ const category=[
 const {carts}=useCart()
 
 
-  return ( <div className={`overflow-hidden w-full bg-slate-100 dark:bg-gray-900 px-2 z-50 h-12 items-center   flex justify-between flex-wrap overflow-x-hidden ${isScroll? "shadow-md shadow-slate-300 dark:shadow-black fixed  ":""} duration-300 z-50`}>
+  return ( <div className={` w-full bg-slate-100 dark:bg-gray-900 px-2 z-50 h-12 items-center   flex justify-between flex-wrap  ${isScroll? "shadow-md shadow-slate-300 dark:shadow-black fixed  ":""} duration-300 z-50`}>
     <div className="flex gap-2"><Image src={Logo} alt="logo" className="w-10 h-10 rounded-full" height={30} width={30}/>
-     <h1 className="font-semibold text-xl md:text-2xl py-2 overflow-hidden">
+     <h1 className="hidden md:block font-semibold text-xl md:text-2xl py-2 overflow-hidden">
       <span className="text-blue-600">Alpha</span>
     <span className="text-teal-600"> Academy</span>
      </h1></div>
 
 
-     <div className="flex md:gap-20  justify-center">
+     <div className="flex   justify-center">
     <div className=" hidden md:block">
-      <div className="flex gap-4">
+      <div className="flex ">
         <div className="pb-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
           <Dropdown  label="Category" contents={category} />
             
@@ -89,19 +89,19 @@ const {carts}=useCart()
       {!user&&<div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
         <Login/>
       </div>}
-      {user&&<div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
-        <Profile user={user}/>
-      </div>}
 
       
     </div></div>
-    <div className="hidden md:block p-2">
-    <button className="dark:hidden px-4" onClick={()=>setTheme('dark')}>
+    {user&&<div className="pb-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
+        <Profile user={user}/>
+      </div>}
+    <div className="  p-2">
+    <button className="dark:hidden px-1" onClick={()=>setTheme('dark')}>
 
 
 <GoMoon size={24}/>
 </button>
-<button className="px-4 hidden dark:block" onClick={() => setTheme("light")}>
+<button className="px-1 hidden dark:block" onClick={() => setTheme("light")}>
 <LuSunMedium size={24}/>
 </button>
     </div>
