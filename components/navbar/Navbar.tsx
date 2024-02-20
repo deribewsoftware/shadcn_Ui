@@ -81,23 +81,11 @@ z
 
 
       <Link href="/cart" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Cart{carts&&`(${carts.length})`}</Link>
-      <div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">  <Modal
-      label="Signup"
-      title="Sign Up"
-      >
-        <div className="p-3 flex flex-col gap-6">
-        <Signup/>
-        </div>
-      </Modal></div>
+      <div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium"> 
+      <Signup/>
+       </div>
       <div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
-        <Modal
-      label="Login"
-      title="Sign In"
-      >
-        <div className="p-3 flex flex-col gap-6">
-         <Login/>
-        </div>
-      </Modal>
+        <Login/>
       </div>
 
       <div className="hidden md:block p-2">
