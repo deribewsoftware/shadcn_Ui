@@ -1,6 +1,6 @@
 /* eslint-disable react/no-children-prop */
 "use client"
-
+import { IoCartOutline } from "react-icons/io5";
 import { useTheme } from "next-themes";
 import Logo from "../../public/alpha.png";
 import Image from "next/image";
@@ -11,11 +11,9 @@ import Dropdown from "../dropdown/dropdown";
 import Link from "next/link";
 import { useCart } from "@/hooks/use.cart";
 
-import Signup from "../signup/signup";
-import Login from "../login/login";
-
 import Profile from "../Profile";
 import MobileSidebar from "./mobileMenu";
+import CategorCDrobDown from "../dropdown/CourseCategory";
 
 interface NavbarClientProps{
   user:any;
@@ -75,12 +73,10 @@ const {carts}=useCart()
     <div className=" hidden md:block">
       <div className="flex ">
         <div className="pb-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
-          <Dropdown  label="Category" contents={category} />
+        <CategorCDrobDown/>
             
         </div>
       <Link href="/#courseslist" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Courses</Link>
-
-      <Link href="/cart" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Cart{carts&&`(${carts.length})`}</Link>
 
       
      
@@ -93,7 +89,14 @@ const {carts}=useCart()
     {user&&<div className="pb-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
         <Profile user={user}/>
       </div>}
-    <div className="  p-2">
+
+      <Link 
+      href="/cart" 
+      className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium relative ">
+        <IoCartOutline size={24}/>
+        {carts&&<div className="absolute top-0 right-0   h-4 w-4 flex justify-center items-center rounded-full text-black bg-green-400"><p className="text-[10px]">{carts&&`(${carts.length})`}</p></div>}
+        </Link>
+    <div className="  p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium ">
     <button className="dark:hidden px-1" onClick={()=>setTheme('dark')}>
 
 
