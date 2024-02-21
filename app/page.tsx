@@ -1,15 +1,17 @@
 import Card from '@/components/card/card'
-import Footer from '@/components/footer/footer'
+
 import Hero from '@/components/hero/hero'
 import Navbar from '@/components/navbar/Navbar'
-import Logo from "../public/liya.jpg"
 
-import { courses } from '@/lib/courses'
 
 import Header from '@/components/Header'
+import { getCourses } from '@/actions/getCourses'
 
 
-export default function Home() {
+export default async function Home() {
+
+const courses=await getCourses()
+
   return (
     <>
     <Header
@@ -36,14 +38,14 @@ export default function Home() {
   
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-center flex-wrap gap-8 p-4 md:px-10'>
 
-        {courses.map((course,index)=>{
+        {courses?.map((course:any)=>{
           return <Card
-          key={index}
+          key={course.id}
               id={course.id}
               category={course.category}
               price={course.price}
               subject={course.subject}
-              rating={course.rating}
+              rating={course?.rating}
               cover={course.cover}  />
       
         })}
@@ -64,14 +66,14 @@ export default function Home() {
     <h1 className='w-full text-2xl md:text-4xl font-semibold border-b mt-10 pl-4'>New Coming  Courses</h1>
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-center flex-wrap gap-8 p-4 md:px-10'>
 
-        {courses.map((course,index)=>{
+        {courses?.map((course,index)=>{
           return <Card
           key={index}
               id={course.id}
               category={course.category}
               price={course.price}
               subject={course.subject}
-              rating={course.rating}
+              rating={course?.rating??0}
               cover={course.cover}  />
       
         })}

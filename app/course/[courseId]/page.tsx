@@ -1,8 +1,88 @@
+"use client"
+
+import Heading from "@/components/Heading/Heading";
+import Container from "@/components/container/container";
+import axios from "axios";
+import { useState, useEffect } from "react";
+
+interface IPrams{
+  courseId:string;
+}
+type Course={
+  title:string;
+  cover:string;
+  video:string;
+  description:any;
+  requiremnts:any;
+  reviews:any;}
+  
+
+const Course = ({params}:{params:IPrams}) => {
+
+  const [course,setCourse]=useState<Course|any>(null)
+  useEffect(()=>{
+    async function fetchData() {
+      try{
+        const response=await axios.get(`/api/course/${params.courseId}`)
+        setCourse(response.data);
+      }
+
+      catch(error){
+
+      }
+    }
+    fetchData();
+    
+  },[params.courseId])
+  if(!course){
+    return ( <div> no Course</div>)
+  }
+  
+  return ( <div className="flex justify-center">
+
+<div className="w-full md:w-10/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12 flex flex-col gap-10  pt-10">
+
+  <h1>{course.subject}</h1>
+  <div>video area</div>
+  <Container
+  childern={
+    <div className="space-y-4 p-4">
+      <Heading title="About Course"/>
+      <div className="" dangerouslySetInnerHTML={{ __html: course.descriptions}}></div>
+      </div>
+  }
+  />
+
+<Container
+  childern={
+    <div className="space-y-4 p-4">
+      <Heading title="About Course"/>
+      <div className="" dangerouslySetInnerHTML={{ __html: course.descriptions}}></div>
+      </div>
+  }
+  />
 
 
+<Container
+  childern={
+    <div className="space-y-4 p-4">
+      <Heading title="Requiremets"/>
+      <div className="" dangerouslySetInnerHTML={{ __html: course.requirements}}></div>
+      </div>
+  }
+  />
 
-const Course = () => {
-  return ( <div className="">course details</div> );
+<Container
+  childern={
+    <div className="space-y-4 p-4">
+      <Heading title="Who Shuld Use Course?"/>
+      <div className="" dangerouslySetInnerHTML={{ __html: course.whoShouldTake}}></div>
+      </div>
+  }
+  />
+</div>
+
+  </div>);
 }
  
 export default Course;
