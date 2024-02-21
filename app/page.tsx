@@ -2,10 +2,13 @@ import Card from '@/components/card/card'
 
 import Hero from '@/components/hero/hero'
 import Navbar from '@/components/navbar/Navbar'
-
+import React from "react";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 import Header from '@/components/Header'
 import { getCourses } from '@/actions/getCourses'
+import { BackgroundBeams } from '@/components/ui/background-beams';
 
 
 export default async function Home() {
@@ -27,7 +30,7 @@ const courses=await getCourses()
     <div className=" fixed bg-blue-200 dark:bg-slate-600 blur-3xl bottom-0 -left-4 h-20 h-40 rounded-full  w-40"></div>
     <div className=" fixed bg-blue-200 dark:bg-slate-600 blur-3xl bottom-0  -right-4  h-40 rounded-full  w-40"></div>
     
-  
+    <BackgroundBeams />
     <Navbar/>
     <Hero/>
    
@@ -84,7 +87,7 @@ const courses=await getCourses()
     </div>
 
    </main>
-   
+  
    </div></>
   )
 }

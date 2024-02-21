@@ -197,7 +197,7 @@ const [isLoading, setIsLoading]=useState(false)
   await handleImageUpload();
 
   const course={...data,cover:imageCoverUrl,videoUrl:videoUrl}
-    axios.post('/api/course',data).then(()=>{
+    axios.post('/api/course',course).then(()=>{
       toast.success("Course created successfully")
     })
     .catch((error)=>{

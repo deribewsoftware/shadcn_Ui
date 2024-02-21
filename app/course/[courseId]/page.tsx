@@ -38,12 +38,21 @@ const Course = ({params}:{params:IPrams}) => {
     return ( <div> no Course</div>)
   }
   
-  return ( <div className="flex justify-center">
+  return ( <>
+  <div className="flex justify-center my-10 px-2">
 
 <div className="w-full md:w-10/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12 flex flex-col gap-10  pt-10">
 
-  <h1>{course.subject}</h1>
-  <div>video area</div>
+  <h1 className="text-xl  font-semibold">{course.subject}</h1>
+  <div>
+    <video
+        className="w-full rounded-lg shadow-lg"
+        controls
+        poster={course.cover}
+      >
+        <source src={course.videoUrl} type="video/mp4"  />
+        Your browser does not support the video tag.
+      </video></div>
   <Container
   childern={
     <div className="space-y-4 p-4">
@@ -82,7 +91,7 @@ const Course = ({params}:{params:IPrams}) => {
   />
 </div>
 
-  </div>);
+  </div></>);
 }
  
 export default Course;
