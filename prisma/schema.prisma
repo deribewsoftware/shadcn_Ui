@@ -49,7 +49,7 @@ model Course{
    createdAt     DateTime  @default(now())
    updatedAt     DateTime  @updatedAt
    subject String
-
+  category String
    cover String?
    videoUrl String?
    price Float
@@ -57,7 +57,7 @@ model Course{
    descriptions String
    requirements String
    whoShouldTake String?
-   reviews String
+   reviews String[]
    chapters Chapter[]
    creator       User      @relation("createdCourses", fields: [creatorId], references: [id])
    customer      User?     @relation("myLearning", fields: [customerId], references: [id])

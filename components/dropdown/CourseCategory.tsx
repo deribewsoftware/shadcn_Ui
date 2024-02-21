@@ -21,7 +21,7 @@ const CategorCDrobDown = () => {
     }
   ]
   return ( 
-    <CDropDown title={
+    <CDropDown chevron title={
       <p>Category</p>
     } body={<div>
         {category.map((c,index)=>{
