@@ -89,6 +89,34 @@ const Course = ({params}:{params:IPrams}) => {
       </div>
   }
   />
+
+<Container
+  childern={
+    <div className="space-y-4 p-4">
+      <Heading title="Rating"/>
+      <div className="">rating</div>
+      </div>
+  }
+  />
+
+<Container
+  childern={
+    <div className="space-y-4 p-4">
+      <Heading title="Rate This Course"/>
+      <div className="">add rating</div>
+      </div>
+  }
+  />
+
+
+<Container
+  childern={
+    <div className="space-y-4 p-4">
+      <Heading title="Reviews"/>
+      <div className="">reviews</div>
+      </div>
+  }
+  />
 </div>
 
   </div></>);

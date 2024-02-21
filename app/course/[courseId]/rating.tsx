@@ -28,6 +28,9 @@ const RatingPage = () => {
            <p>{(star/5)*100}%</p>
         </div>)
         }
+
+
+        
         
       </div>
     </div>
