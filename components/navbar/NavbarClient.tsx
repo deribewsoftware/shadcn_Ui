@@ -10,11 +10,12 @@ import { LuSunMedium } from "react-icons/lu";
 import Dropdown from "../dropdown/dropdown";
 import Link from "next/link";
 import { useCart } from "@/hooks/use.cart";
-import MobileMenu from "./mobileMenu";
+
 import Signup from "../signup/signup";
 import Login from "../login/login";
 
 import Profile from "../Profile";
+import MobileSidebar from "./mobileMenu";
 
 interface NavbarClientProps{
   user:any;
@@ -82,13 +83,10 @@ const {carts}=useCart()
       <Link href="/cart" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Cart{carts&&`(${carts.length})`}</Link>
 
       
-      {!user&&<div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium"> 
-      <Signup/>
-       </div>}
-
-      {!user&&<div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
-        <Login/>
-      </div>}
+     
+       {!user&&<Link href="/register" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Signup</Link>}
+       {!user&&<Link href="/login" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Login</Link>}
+     
 
       
     </div></div>
@@ -108,7 +106,7 @@ const {carts}=useCart()
 
     
     <div className="md:hidden">
-   <MobileMenu/>
+   <MobileSidebar user={user}/>
     </div>
    
 

@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 import Modal from "../modal/modal";
 const Login = () => {
 const router=useRouter();
-const [isOpen,setOpen]=useState(false);
+
   const [Loading,setLoading]=useState(false);
   const {register,handleSubmit,formState:{errors}}=useForm<FieldValues>({
     defaultValues:{
@@ -30,9 +30,9 @@ const [isOpen,setOpen]=useState(false);
      redirect:false,
     }).then((callback)=>{
       if (callback?.ok){
-        router.push('#')
+        router.push('/')
         router.refresh()
-        setOpen(!isOpen)
+        
         toast.success("account logged in successfully")
         
       }
@@ -50,8 +50,8 @@ const [isOpen,setOpen]=useState(false);
 
 
 
-  return ( <Modal label={"Login"}  title={"Signin"} setOpen={()=>setOpen(!isOpen)} isOpen={isOpen}>
-    <div className="w-sm flex flex-col gap-2">
+  return (
+    <div className="bg-white dark:bg-gray-800 py-4 w-full md:max-w-md flex flex-col gap-2">
 
 <div className="flex flex-col">
   
@@ -78,7 +78,7 @@ const [isOpen,setOpen]=useState(false);
 <button className="w-full mx-2 px-2 py-1 border rounded-lg border-gray-700" onClick={()=>{signIn('google')}}>Signin With Google</button>
 </div> 
 
-  </Modal>);
+  );
 }
  
 

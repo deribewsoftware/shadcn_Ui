@@ -16,13 +16,17 @@ const UserProfile:React.FC<UserProfileProps>  = ({user}) => {
   const onOpen =()=>{
 setDropdown((prev)=>!prev)
   }
+  if (!user){
+    return <h1>No User</h1>
+  }
+  else{
   return (  <>
     <div className="z-50">
      <div className="p-2">
        <button onClick={onOpen}>
-       <Image width={32} height={32} className={`${!user.image&&'hidden'} bg-gray-600 rounded-full `}   src={user.image} alt="Rounded avatar"/>
+       <Image width={32} height={32} className={`${!user?.image&&'hidden'} bg-gray-600 rounded-full `}   src={user?.image? user?.image:"/"} alt="Rounded avatar"/>
 
-<div className={`${user.image&&'hidden'} relative inline-flex items-center justify-center w-7 h-7 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600`}>
+<div className={`${user?.image&&'hidden'} relative inline-flex items-center justify-center w-7 h-7 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600`}>
     <span className="font-medium text-gray-600 dark:text-gray-300">{user.name[0]}</span>
 </div>
 
@@ -54,6 +58,6 @@ setDropdown((prev)=>!prev)
     </div>
    </div>
 </>  );
-}
+}}
  
 export default  UserProfile ;

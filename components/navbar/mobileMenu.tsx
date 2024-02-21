@@ -1,30 +1,20 @@
 "use client"
-import { ReactNode, useState } from "react";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Button } from "../ui/button";
-import Link from "next/link";
-import { GoMoon } from "react-icons/go";
-import { LuSunMedium } from "react-icons/lu";
 import { useTheme } from "next-themes";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
-import Modal from "../modal/modal";
+import { IoIosMenu } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
 import { useCart } from "@/hooks/use.cart";
+import { useState } from "react";
+import Signup from "../signup/signup";
+import Login from "../login/login";
 
+interface MobileSidebarProps{
+  user:any;
+}
 
-
-const MobileMenu= () => {
+const MobileSidebar:React.FC<MobileSidebarProps>= ({user}) => {
   const {setTheme}=useTheme();
   const {carts}=useCart()
-
+   const [isOpen,setOpen]=useState(false)
 
  
   const category=[
@@ -46,95 +36,46 @@ const MobileMenu= () => {
     }
   ]
   
- 
+ const onOpen = () => {
+  setOpen((prev)=>!prev)
+ };
 
   
     return (
-      <DropdownMenu >
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="border-none outline-none flex gap-1">
-          <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    width="24"
-    height="24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="3" y1="12" x2="21" y2="12"></line>
-    <line x1="3" y1="6" x2="21" y2="6"></line>
-    <line x1="3" y1="18" x2="21" y2="18"></line>
-  </svg>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56 bg-opacity-95 bg-slate-100 dark:bg-gray-800 rounded-[5px] rounded-t-0 dark:border-gray-600">
-          <DropdownMenuLabel>
-          <button className="dark:hidden px-4" onClick={()=>setTheme('dark')}>
-
-
-<GoMoon size={24}/>
-</button>
-<button className="px-4 hidden dark:block" onClick={() => setTheme("light")}>
-<LuSunMedium size={24}/>
-</button>
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuRadioGroup >
-          <Accordion type="single" collapsible className="w-full">
-     
-     
-      <AccordionItem value="item-3" className="border-none">
-        <AccordionTrigger className="text-sm  hover:no-underline hover:border-none ">Category</AccordionTrigger>
-        <AccordionContent>
-        {category.map((cat,index)=>{
-              return <Link key={index} className="hover:bg-slate-600 dark:hover:bg-gray-800" href={`/${cat.url}`}><DropdownMenuRadioItem  value="top">{cat.name}</DropdownMenuRadioItem></Link>
-            })}
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-
-    <div className="">
-    <Link href="/#courseslist" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Courses</Link>
-    </div>
-
-
+      
 
 
 <div className="">
-<Link href="/cart" className="p-2 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">Cart{carts&&`(${carts.length})`}</Link>
-</div>
-<div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">  <Modal
-label="Signup"
-title="Sign Up"
->
-  <div className="p-3 flex flex-col gap-6">
-    {/* <Input type="text" label="Username"/>
-    <Input type="phone" label="Phone"/>
-    <Input type="password" label="Password"/>
+  <button onClick={onOpen} className="pt-2"> {isOpen? <IoMdClose size={24}/>:<IoIosMenu size={24}/>}</button>
+  <div className={`fixed  right-0  h-full bg-white dark:bg-gray-800 shadow-xl top-10 z-50 ${!isOpen?'w-0 bg-opacity-0 translate-x-[100%]':'w-[70%] bg-opacity-100 translate-x-0'} transition duration-300 ease-in-out`}>
+      <div className=" px-2">
+      {user&&<div className=" flex no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium"> 
+      <IoIosMenu/>  <Signup/>
+       </div>}
+
+      {user&&<div className="flex  no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
+       <IoIosMenu/> <Login/>
+      </div>}
+        <p>Category</p>
+        <p>Category</p>
+        <p>Category</p>
+        <p>Category</p>
+        <p>Category</p>
+        <p>Category</p>
+        <p>Category</p>
+        <p>Category</p>
+        <p>Category</p>
+
+      </div>
+    </div>
+  <div onClick={onOpen} className={`fixed right-0 left-0 w-full h-screen z-0 bg-black bg-opacity-20 ${!isOpen&&'hidden'}`}>
     
-    <Input type="password" label="Confirm Password"/> */}
   </div>
-</Modal></div>
-<div className="p-1 no-underline text-gray-500 dark:text-gray-400 font-medium  hover:dark:text-green-400 hover:text-rose-400 transition duration-300 font-medium">
-  <Modal
-label="Login"
-title="Sign In"
->
-  <div className="p-3 flex flex-col gap-6">
-    {/* <Input type="text" label="Username"/>
-    <Input type="password" label="Password"/> */}
-  </div>
-</Modal>
 </div>
-            
-          </DropdownMenuRadioGroup>
-        </DropdownMenuContent>
-      </DropdownMenu>
+
+
     
    );
 }
  
-export default MobileMenu;
+export default MobileSidebar;
