@@ -1,30 +1,38 @@
+import { MdOutlineDashboard } from "react-icons/md";
+import { SiCoursera } from "react-icons/si";
+import { PiUsersFourLight } from "react-icons/pi";
+
 export const sidebarData=[
+  // {
+  //   title:"Dashboard",
+  //   url:"/dashboard",
+  //   icon:MdOutlineDashboard,
+
+  // },
   {
-    name:"Dashboard",
-    href:"/dashboard"
-  },
-  {
-    name:"Course",
-    links:[
+    title:"Course",
+    icon:SiCoursera,
+    items:[
       {
-        linkName:"Course List",
-        href:"/dashboard/list-courses"
+        label:"Course List",
+        url:"/dashboard/list-courses"
       },
       {
-        linkName:"Create Course",
-        href:"/dashboard/create-course"
+        label:"Create Course",
+        url:"/dashboard/create-course"
       }, {
-        linkName:"Approved Course",
-        href:"/dashboard/approved-courses"
+        label:"Approved Course",
+        url:"/dashboard/approved-courses"
       }
     ]
   },
   {
-    name:"User",
-    links:[
+    title:"User",
+    icon:PiUsersFourLight,
+    items:[
       {
-        linkName:"User List",
-        href:"/dashboard/user-list"
+        label:"User List",
+        url:"/dashboard/user-list"
       }
     ]
   }

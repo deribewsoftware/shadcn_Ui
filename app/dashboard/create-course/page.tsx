@@ -212,7 +212,7 @@ const [isLoading, setIsLoading]=useState(false)
 
 
   
-  return ( <div className="flex flex-col w-full lg:w-8/12 ">
+  return ( <div className="flex flex-col w-full  ">
    
     <div className="flex flex-col gap-20 w-full pb-16 mb-16">
       <Heading title="Create Courses"/>

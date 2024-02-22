@@ -1,31 +1,21 @@
 "use client"
-import { dashboardContents } from "@/lib/dashboardContents";
-import SideBarItems from "./sidebarItems";
-import { useToggle } from "@/hooks/use.toggle";
+
 import { sidebarData } from "@/lib/sidebarData";
+import SideBarItems from "./sidebarItems";
 import Link from "next/link";
+import { MdOutlineDashboard } from "react-icons/md";
+
+
+
 
 const Sidebar = () => {
-  const {isOpen} =useToggle()
-  return ( <div className={` h-screen relative  ${isOpen? "w-72":"hidden md:block w-20 items-center"} transition duration-500 ease-out `}>
-  <div className={`fixed  bg-white dark:bg-gray-800 shadow-md h-screen pt-10 ${isOpen? "w-72":"w-20 items-center"} transition duration-300`}>
-   {sidebarData&&sidebarData.map((sidebar,index) =>{
-    return <ul key={index} className="list-none">
-            {sidebar.href? <li><Link className="text-gray-500 hover:text-gray-600 hover:dark:text-gray-300  dark:text-gray-400 no-underline font-semibold" href={sidebar.href}>{sidebar.name}</Link></li>:<li className="text-gray-500  dark:text-gray-400 no-underline font-semibold">{sidebar.name}</li>}
-            
-            <li>
-              <ul className="list-none">
-               
-               {sidebar.links?.map((link,ind)=>{
-                return <li key={ind}><Link className="text-gray-500 hover:text-gray-600 hover:dark:text-gray-300  dark:text-gray-400 no-underline " href={link.href}>{link.linkName}</Link></li>
-               })}
-              </ul>
-            </li>
-      </ul>
-    
-   })}
-</div>
-  </div> );
+
+  
+  return ( <div className="flex flex-col gap-4 pt-10">
+    <Link className=" flex gap-2 no-underline text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+          href="/dashboard"> <p><MdOutlineDashboard size={20}/></p><p>Dashbord</p> </Link>
+     <SideBarItems sidebarData={sidebarData}/>
+ </div> );
 }
  
 export default Sidebar;

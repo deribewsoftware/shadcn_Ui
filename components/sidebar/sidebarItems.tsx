@@ -1,19 +1,46 @@
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 import Link from "next/link";
-import { IconType } from "react-icons";
-
+import { IconBase, IconBaseProps } from "react-icons";
 interface SideBarItemsPops{
-  url:string;
-  name:string;
-  icon:IconType;
-  isOpen:boolean;
+  sidebarData:any[];
 }
-const SideBarItems:React.FC<SideBarItemsPops> = ({url,name,icon:Icon,isOpen}) => {
-  return ( <Link href={`/dashboard/${url}`} className="flex gap-2 p-2 px-4 items-center dark:hover:bg-gray-700 transition">
-    <Icon size={24} className={`${isOpen? "block":"hidden md:block"} transition duration-300`}/>
-    <p className={`${isOpen? "block":"hidden"} transition duration-300`}>{name}</p>
+const SideBarItems:React.FC<SideBarItemsPops> = ({sidebarData}) => {
+  return ( 
+    <Accordion type="single" collapsible className="w-full " >
+    {sidebarData.map((sidebar,index) =>{
 
-
-  </Link> );
+      return <AccordionItem className="border-none" key={index} value={`${index}`}>
+      <AccordionTrigger className="hover:no-underline">
+        <div 
+      className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 flex gap-2">
+        <p> {<sidebar.icon size={20}/>}</p> 
+        <p>{sidebar.title}</p>
+        </div>
+        </AccordionTrigger>
+      <AccordionContent className="mx-2">
+        <div className="flex flex-col gap-2 border-l-[1.5px] border-gray-200 dark:border-gray-600 ">
+        {sidebar.items.map((item:any,ind:number) =>{
+          return <Link
+          className="no-underline text-sm text-gray-500 dark:text-gray-400 px-2 hover:border-l-[1.5px] hover:border-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+          key={ind} href={item.url}>{item.label}</Link>
+        })}
+        </div>
+      </AccordionContent>
+    </AccordionItem>
+    })}
+  </Accordion>
+  
+  );
 }
  
 export default SideBarItems;
+
+
+
+
