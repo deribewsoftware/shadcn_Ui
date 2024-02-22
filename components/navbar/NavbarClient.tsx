@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { GoMoon } from "react-icons/go";
 import { LuSunMedium } from "react-icons/lu";
-import Dropdown from "../dropdown/dropdown";
+
 import Link from "next/link";
 import { useCart } from "@/hooks/use.cart";
 
@@ -61,7 +61,7 @@ const category=[
 const {carts}=useCart()
 
 
-  return ( <div className={` w-full bg-slate-100 dark:bg-gray-900 px-2 z-50 h-12 items-center   flex justify-between flex-wrap  ${isScroll? "shadow-md shadow-slate-300 dark:shadow-black fixed  ":""} duration-300 z-50`}>
+  return ( <div className={` w-full px-2 z-50 h-12 items-center   flex justify-between flex-wrap  ${isScroll? "shadow-md shadow-slate-300 dark:shadow-black fixed bg-slate-100 dark:bg-gray-900  ":""} duration-300 z-50`}>
     <div className="flex gap-2"><Image src={Logo} alt="logo" className="w-10 h-10 rounded-full" height={30} width={30}/>
      <h1 className="hidden md:block font-semibold text-xl md:text-2xl py-2 overflow-hidden">
       <span className="text-blue-600">Alpha</span>

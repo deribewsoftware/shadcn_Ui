@@ -22,13 +22,13 @@ router.refresh()
       {coursesContents.map((courseContent,index) =>{
         return <AccordionItem key={index} value={`${index}`}className="border border-slate-200 dark:border-gray-600 px-2 md:px-6 m-2 rounded-[6px] ">
         <AccordionTrigger ><div className="flex gap-1 md:gap-4 text-md text-captalize  ">
-         <p className="text-sm md:text-lg text-rose-600 dark:text-teal-400">Chapter:{courseContent.chapter}</p>
-         <p className="text-sm md:text-lg">{courseContent.title}</p>
+         <p className="text-base text-rose-600 dark:text-teal-400">Chapter:{courseContent.chapter}</p>
+         <p className="text-base">{courseContent.title}</p>
           </div></AccordionTrigger>
         <AccordionContent className="bg-background">
           <ul className="">
             {courseContent.lessons.map((lesson,ind)=>{
-return <li onClick={()=>onLessonRouter(courseId,`${index+1}`,`${ind+1}`)} className="flex text-md  gap-2  hover:underline  hover:text-teal-500 p-1 transition duration-300" key={ind}>
+return <li onClick={()=>onLessonRouter(courseId,`${index+1}`,`${ind+1}`)} className="flex text-sm gap-2  hover:underline  hover:text-teal-500  transition duration-300" key={ind}>
   <p>Lesson:{ind+1}</p>
   <p>{lesson}</p>
 </li>

@@ -6,7 +6,7 @@ import { BsBarChart } from "react-icons/bs";
 import Container from "@/components/container/container";
 import Heading from "@/components/Heading/Heading";
 
-const CourseContent = () => {
+const CourseContentList = () => {
   return ( <Container childern={<>
     <Heading title="This Course includes " />
       <div className=" md:px-2 md:px-10  ">
@@ -69,4 +69,4 @@ const CourseContent = () => {
       </>}/>);
 }
  
-export default CourseContent;
+export default CourseContentList;

@@ -21,6 +21,7 @@ interface AddReviewsProps{
 const AddReviews:React.FC<AddReviewsProps> = ({course}) => {
   const router=useRouter();
   const [isLoading,setLoading] =useState(false);
+  const [isvalue,setIsValue] = useState(0)
 const {register,handleSubmit,reset,setValue,formState:{errors}}=useForm<FieldValues>({
   defaultValues:{
     comment:"",
@@ -58,18 +59,19 @@ if (!course){
     <div className="flex flex-col mt-4 gap-2">
     <Rating size="large" precision={0.5} onChange={(event,newValue)=>{
       setCostume("rating",newValue);
+      setIsValue(newValue||0);
     }}
     emptyIcon={
-      <StarOutlined fontSize="inherit" className="text-gray-100 dark:text-gray-600" />
+      <StarOutlined fontSize="inherit" className="text-gray-200 dark:text-gray-600" />
     }
     />
 
-   <div className="flex w-full gap-1">
+   {isvalue?<div className="flex w-full gap-1">
    <div className="w-11/12">
    <Input
    
    id="comment"
-   label="Comment"
+   label="Write Your Comment"
    required
    register={register}
    errors={errors}
@@ -78,9 +80,9 @@ if (!course){
    />
    </div>
     <div className="flex pt-4 justify-center  items-center">
-   <button className="text-gray-500 dark:text-gray-400 font-bold hover:text-blue-500 hover:dark:text-blue-400 transition shadow duration-300"><IoIosSend size={40}/></button>
+   <button onClick={handleSubmit(onSubmit)} className="text-gray-500 dark:text-gray-400 font-bold hover:text-blue-500 hover:dark:text-blue-400 transition  duration-300"><IoIosSend size={40}/></button>
     </div>
-   </div>
+   </div>:""}
   
 
     

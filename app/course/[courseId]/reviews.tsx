@@ -1,4 +1,5 @@
-import { Avatar, backdropClasses, Rating } from "@mui/material";
+import { Avatar, Rating } from "@mui/material";
+import Moment from 'react-moment';
 import Container from "@/components/container/container";
 import Heading from "@/components/Heading/Heading";
 import StarOutlined from "@mui/icons-material/StarOutlined";
@@ -25,7 +26,7 @@ const Reviews:React.FC<ReviewsProps> = ({reviews}) => {
       <div className="flex flex-col  justify-between w-full">
         <div className="flex flex-col md:flex-row md:gap-6 justify-between"> 
         <p className="font-bold">{review.customer.name}</p>
-        <p className="text-gray-500 dark:text-gray-400">{review.createdAt}</p>
+        <p className="text-gray-500 dark:text-gray-400 text-sm"> <Moment fromNow>{review.createdAt}</Moment></p>
         </div>
         <div className="">
           <Rating 

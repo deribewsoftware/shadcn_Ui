@@ -1,5 +1,5 @@
 
-import DashboardNavbar from "@/components/navbar/DashboardNavbar";
+import Navbar from "@/components/navbar/Navbar";
 
 import Sidebar from "@/components/sidebar/sidebar";
 import { ReactNode } from "react";
@@ -10,11 +10,15 @@ interface DashboardLayoutProbs{
 
 const DashboardLayout:React.FC<DashboardLayoutProbs> = ({children}) => {
   return ( <div className="">
-   <DashboardNavbar/>
-    <div className="flex gap-10 justify-between  pt-10">
+   <Navbar/>
+    <div className="lg:px-10 flex gap-10 justify-between  pt-10 w-full">
       
-          <Sidebar/>
-      <div className="flex-grow px-2 md:px-10 flex justify-center pt-10">
+          <div className="hidden lg:block w-sm">
+          <div className="fixed left-10 h-screen overflow-y-auto"><Sidebar/></div>
+          </div>
+
+
+          <div className="w-full flex-grow px-2 lg:px-10 flex justify-center pt-10 lg:border-x border-gray-200 dark:border-gray-700">
      
     {children}
       </div>

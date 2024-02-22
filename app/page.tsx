@@ -3,8 +3,6 @@ import Card from '@/components/card/card'
 import Hero from '@/components/hero/hero'
 import Navbar from '@/components/navbar/Navbar'
 import React from "react";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 import Header from '@/components/Header'
 import { getCourses } from '@/actions/getCourses'
