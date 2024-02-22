@@ -41,7 +41,7 @@ model User {
   createdCourses  Course[]  @relation("createdCourses")
   role   Role @default(USER)
   accounts      Account[]
-  
+  reviews  Review[]
 }
 
 model Course{
@@ -57,12 +57,12 @@ model Course{
    descriptions String
    requirements String
    whoShouldTake String?
-   reviews String[]
    chapters Chapter[]
    creator       User      @relation("createdCourses", fields: [creatorId], references: [id])
    customer      User?     @relation("myLearning", fields: [customerId], references: [id])
    creatorId String @db.ObjectId
    customerId String? @db.ObjectId
+   reviews  Review[]
 
 }
 
@@ -111,6 +111,18 @@ model Category{
 
 }
 
+model Review{
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+   createdAt     DateTime  @default(now())
+   updatedAt     DateTime  @updatedAt
+   comment String
+   rating Float
+   customer      User      @relation( fields: [customerId], references: [id])
+   customerId String @db.ObjectId
+   course Course @relation(fields: [courseId], references: [id])
+   courseId String @db.ObjectId
+
+}
 
 
 enum Role{

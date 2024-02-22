@@ -4,6 +4,9 @@ import Heading from "@/components/Heading/Heading";
 import Container from "@/components/container/container";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import RatingPage from "./rating";
+import AddReviews from "./addReview";
+import Reviews from "./reviews";
 
 interface IPrams{
   courseId:string;
@@ -37,7 +40,7 @@ const Course = ({params}:{params:IPrams}) => {
   if(!course){
     return ( <div> no Course</div>)
   }
-  
+  console.log("course reviews updated",course.reviews)
   return ( <>
   <div className="flex justify-center my-10 px-2">
 
@@ -90,33 +93,13 @@ const Course = ({params}:{params:IPrams}) => {
   }
   />
 
-<Container
-  childern={
-    <div className="space-y-4 p-4">
-      <Heading title="Rating"/>
-      <div className="">rating</div>
-      </div>
-  }
-  />
-
-<Container
-  childern={
-    <div className="space-y-4 p-4">
-      <Heading title="Rate This Course"/>
-      <div className="">add rating</div>
-      </div>
-  }
-  />
 
 
-<Container
-  childern={
-    <div className="space-y-4 p-4">
-      <Heading title="Reviews"/>
-      <div className="">reviews</div>
-      </div>
-  }
-  />
+<RatingPage/>
+<AddReviews course={course}/>
+<Reviews reviews={course.reviews}/>
+
+
 </div>
 
   </div></>);

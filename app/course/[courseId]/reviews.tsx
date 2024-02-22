@@ -1,11 +1,11 @@
-import { Avatar, Rating } from "@mui/material";
-
+import { Avatar, backdropClasses, Rating } from "@mui/material";
 import Container from "@/components/container/container";
 import Heading from "@/components/Heading/Heading";
+import StarOutlined from "@mui/icons-material/StarOutlined";
 type Review={
-  user:any;
-  date: string;
-  comments: string;
+  customer:any;
+  createdAt: string;
+  comment: string;
   rating: number;
 
 }
@@ -15,27 +15,37 @@ interface ReviewsProps{
 }
 
 const Reviews:React.FC<ReviewsProps> = ({reviews}) => {
-  return (  <Container childern={<>
+  return (  <Container childern={<div className="p-3">
     <Heading title="Reviews" />
-    <div className="mt-4">{
-    reviews.map((review,index)=> <div key={index} className="flex flex-col md:flex-row  w-full md:gap-10  border-b-2 py-3 md:py-6 border-slate-400">
-    <div className=""><Avatar alt={review.user.name} src={review.user.image}/></div>
+    <div className="mt-4 " >{
+    reviews.map((review,index)=> <div key={index} className="flex flex-col md:flex-row  w-full md:gap-4  border-b py-3 md:py-6 border-gray-200 dark:border-gray-600">
+    <div className=""><Avatar alt={review.customer.name} src={review.customer.avatar}/></div>
+
     <div className="flex flex-col w-full py-2">
-      <div className="flex flex-col md:flex-row justify-between w-full">
-        <div className="flex flex-col md:flex-row md:gap-6"> 
-        <p className="font-bold">{review.user.name}</p>
-        <p>{review.date}</p>
+      <div className="flex flex-col  justify-between w-full">
+        <div className="flex flex-col md:flex-row md:gap-6 justify-between"> 
+        <p className="font-bold">{review.customer.name}</p>
+        <p className="text-gray-500 dark:text-gray-400">{review.createdAt}</p>
         </div>
-        <div className=""><Rating readOnly value={review.rating}/></div>
+        <div className="">
+          <Rating 
+        readOnly 
+        value={review.rating} 
+        precision={0.5} 
+        size="small" 
+        emptyIcon={
+          <StarOutlined fontSize="inherit" className="text-gray-100 dark:text-gray-600" />
+        }
+        /></div>
   
       </div>
   
-      <p className="text-sm">{review.comments}</p>
+      <p className="text-sm text-gray-500 dark:text-gray-400  py-1">{review.comment}</p>
     </div>
     
   </div>)
   }</div>
-</>}/> );
+</div>}/> );
 }
  
 export default Reviews;
